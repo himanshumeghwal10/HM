@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,31 +33,24 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
         }
 
-        /* --- Glassmorphism --- */
+        /* --- Glassmorphism (Dark Mode Only) --- */
         .glass-card {
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             transition: all 0.3s ease;
-        }
-
-        /* Dark Mode Glass */
-        .dark .glass-card {
             background: rgba(15, 23, 42, 0.4); /* Slate 900 with opacity */
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Light Mode Glass */
-        html:not(.dark) .glass-card {
-            background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(226, 232, 240, 0.8); /* Slate 200 */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
         .glass-card:hover {
             transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
         /* --- Background Orbs --- */
@@ -100,61 +93,42 @@
             from {opacity: 0;}
             to {opacity: 1;}
         }
-
-        /* Light Mode Text Corrections */
-        html:not(.dark) body {
-            background-color: #f0f4f8; 
-            color: #1e293b; 
-        }
-        html:not(.dark) .text-slate-400 {
-            color: #64748b; 
-        }
-        html:not(.dark) .text-slate-300 {
-            color: #475569;
-        }
     </style>
 </head>
-<body class="dark bg-slate-900 text-slate-100 overflow-x-hidden relative selection:bg-blue-500 selection:text-white">
+<body class="dark overflow-x-hidden relative selection:bg-blue-500 selection:text-white">
 
     <div class="orb w-96 h-96 bg-blue-500/20 top-0 left-0 animate-delay-0"></div>
     <div class="orb w-[500px] h-[500px] bg-purple-500/20 bottom-0 right-0 animation-delay-2000"></div>
     <div class="orb w-64 h-64 bg-cyan-500/10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
 
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md" id="navbar">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-slate-900/80 backdrop-blur-md" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-slate-800 dark:text-white hover:text-blue-500 transition-colors">
+            <a href="#" class="text-2xl font-bold tracking-tighter text-white hover:text-blue-500 transition-colors">
                 HM<span class="text-blue-500">.</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
-                <a href="#experience" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Experience</a>
-                <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#about" class="text-sm font-bold text-slate-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#experience" class="text-sm font-bold text-slate-300 hover:text-blue-400 transition-colors">Experience</a>
+                <a href="#skills" class="text-sm font-bold text-slate-300 hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="text-sm font-bold text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
                 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors text-yellow-500 dark:text-yellow-400">
-                    <i data-lucide="sun" id="theme-icon"></i>
-                </button>
-
                 <a href="#contact" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-blue-500/30">
                     Let's Talk
                 </a>
             </div>
 
-            <button id="mobile-btn" class="md:hidden text-2xl text-slate-800 dark:text-white">
+            <button id="mobile-btn" class="md:hidden text-2xl text-white">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 overflow-hidden h-0 transition-all duration-300">
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-slate-900 backdrop-blur-xl border-b border-white/10 overflow-hidden h-0 transition-all duration-300">
             <div class="flex flex-col p-6 space-y-4 text-center">
-                <a href="#about" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200">About</a>
-                <a href="#experience" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200">Experience</a>
-                <a href="#skills" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200">Skills</a>
-                <a href="#projects" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200">Projects</a>
-                <button id="mobile-theme-toggle" class="text-yellow-500 dark:text-yellow-400 mx-auto pt-2 font-bold flex items-center gap-2">
-                    <i data-lucide="sun"></i> Toggle Theme
-                </button>
+                <a href="#about" class="mobile-link text-lg font-bold text-slate-200">About</a>
+                <a href="#experience" class="mobile-link text-lg font-bold text-slate-200">Experience</a>
+                <a href="#skills" class="mobile-link text-lg font-bold text-slate-200">Skills</a>
+                <a href="#projects" class="mobile-link text-lg font-bold text-slate-200">Projects</a>
             </div>
         </div>
     </nav>
@@ -162,58 +136,58 @@
     <section id="about" class="min-h-screen flex items-center pt-32 pb-20 relative">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="reveal">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
-                    <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-500 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                     Available for New Projects
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-slate-900 dark:text-white min-h-[160px] md:min-h-[180px]">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white min-h-[160px] md:min-h-[180px]">
                     Hi, I'm Himanshu.<br>
-                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500"></span>
-                    <span class="text-blue-600 dark:text-blue-400 animate-pulse">|</span>
+                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"></span>
+                    <span class="text-blue-400 animate-pulse">|</span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-lg leading-relaxed mt-4">
-                    I help brands dominate search results and scale social engagement. Combining <span class="text-slate-900 dark:text-white font-semibold">Technical SEO</span>, <span class="text-slate-900 dark:text-white font-semibold">Data Analytics</span>, and <span class="text-slate-900 dark:text-white font-semibold">Creative Strategy</span> to drive measurable ROI.
+                <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-lg leading-relaxed mt-4 font-medium">
+                    I help brands dominate search results and scale social engagement. Combining <span class="text-white font-bold">Technical SEO</span>, <span class="text-white font-bold">Data Analytics</span>, and <span class="text-white font-bold">Creative Strategy</span> to drive measurable ROI.
                 </p>
                 
                 <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-xl">
+                    <a href="#projects" class="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-xl hover:shadow-2xl">
                         View Case Studies <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
-                    <a href="assets/Himanshu_Meghwal_CV_2025.pdf" class="px-8 py-4 glass-card rounded-full font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition-all text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30">
+                    <a href="assets/Himanshu_Meghwal_CV_2025.pdf" class="px-8 py-4 glass-card rounded-full font-bold hover:bg-white/10 transition-all text-blue-400 border border-blue-500/30">
                         Download CV
                     </a>
                 </div>
 
-                <div class="mt-12 flex items-center gap-6 text-slate-500 dark:text-slate-400">
-                    <a href="https://www.linkedin.com/in/himanshumeghwal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-500 transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/himanshu_meghwal_2001?igsh=czJoeTB4MXZlbmE5" target="_blank" class="hover:text-pink-600 dark:hover:text-pink-500 transition-colors text-2xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-slate-900 dark:hover:text-white transition-colors text-2xl"><i class="fa-regular fa-envelope"></i></a>
+                <div class="mt-12 flex items-center gap-6 text-slate-400">
+                    <a href="https://www.linkedin.com/in/himanshumeghwal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-500 transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/himanshu_meghwal_2001?igsh=czJoeTB4MXZlbmE5" target="_blank" class="hover:text-pink-500 transition-colors text-2xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white transition-colors text-2xl"><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
 
             <div class="reveal delay-200 relative flex justify-center">
                 <div class="relative w-72 h-72 md:w-96 md:h-96">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[60px] opacity-20 dark:opacity-40 animate-pulse"></div>
-                    <img src="Photo.png" alt="Himanshu Meghwal" class="relative z-10 w-full h-full object-cover rounded-3xl border-4 border-white dark:border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[60px] opacity-40 animate-pulse"></div>
+                    <img src="Photo.png" alt="Himanshu Meghwal" class="relative z-10 w-full h-full object-cover rounded-3xl border-4 border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500">
                     
                     <div class="absolute -right-4 top-10 glass-card p-4 rounded-xl z-20 animate-bounce" style="animation-duration: 3s;">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400"><i data-lucide="trending-up"></i></div>
+                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400"><i data-lucide="trending-up"></i></div>
                             <div>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Organic Traffic</p>
-                                <p class="font-bold text-slate-900 dark:text-white">+60% Growth</p>
+                                <p class="text-xs text-slate-400 font-semibold">Organic Traffic</p>
+                                <p class="font-bold text-white">+60% Growth</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="absolute -left-8 bottom-20 glass-card p-4 rounded-xl z-20 animate-bounce" style="animation-duration: 4s;">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-500/20 flex items-center justify-center text-red-600 dark:text-red-400"><i data-lucide="youtube"></i></div>
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400"><i data-lucide="youtube"></i></div>
                             <div>
-                                <p class="text-xs text-slate-500 dark:text-slate-400">Subscribers</p>
-                                <p class="font-bold text-slate-900 dark:text-white">100K+ Reach</p>
+                                <p class="text-xs text-slate-400 font-semibold">Subscribers</p>
+                                <p class="font-bold text-white">100K+ Reach</p>
                             </div>
                         </div>
                     </div>
@@ -222,57 +196,57 @@
         </div>
     </section>
 
-    <section class="py-10 border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+    <section class="py-10 border-y border-white/5 bg-white/5 backdrop-blur-sm">
         <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div class="reveal">
-                <p class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-1">2+</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">Years Exp.</p>
+                <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">2+</p>
+                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Years Exp.</p>
             </div>
             <div class="reveal delay-100">
-                <p class="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-1">100K+</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">Audience</p>
+                <p class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-1">100K+</p>
+                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Audience</p>
             </div>
             <div class="reveal delay-200">
-                <p class="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-1">12+</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">Projects</p>
+                <p class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">12+</p>
+                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Projects</p>
             </div>
             <div class="reveal delay-300">
-                <p class="text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400 mb-1">60%</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">Avg Growth</p>
+                <p class="text-3xl md:text-4xl font-extrabold text-green-400 mb-1">60%</p>
+                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Avg Growth</p>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-24 bg-slate-50 dark:bg-black/20">
+    <section id="experience" class="py-24 bg-black/20">
         <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
             
             <div>
-                <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-slate-900 dark:text-white">
-                    <i data-lucide="briefcase" class="text-blue-500"></i> Experience
+                <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-white">
+                    <i data-lucide="briefcase" class="text-blue-600"></i> Experience
                 </h2>
 
                 <div class="space-y-8">
-                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-blue-500 reveal">
-                        <span class="absolute top-6 right-6 text-xs font-bold px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded">Current</span>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Digital Marketing Executive</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Pushpa Arts Pvt. Ltd. | Nov 2024 - Present</p>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-blue-600 reveal">
+                        <span class="absolute top-6 right-6 text-xs font-bold px-2 py-1 bg-blue-500/20 text-blue-400 rounded">Current</span>
+                        <h3 class="text-xl font-bold text-white">Digital Marketing Executive</h3>
+                        <p class="text-slate-400 text-sm mb-4 font-semibold">Pushpa Arts Pvt. Ltd. | Nov 2024 - Present</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
                             Driving SEO strategies to boost organic rankings. Managing Google & Meta Ad campaigns for maximum ROAS. Optimizing YouTube content strategy.
                         </p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-400 dark:border-l-slate-700 reveal delay-100">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Digital Marketing Intern</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Pushpa Arts Pvt. Ltd. | Jun 2024 - Oct 2024</p>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-700 reveal delay-100">
+                        <h3 class="text-xl font-bold text-white">Digital Marketing Intern</h3>
+                        <p class="text-slate-400 text-sm mb-4 font-semibold">Pushpa Arts Pvt. Ltd. | Jun 2024 - Oct 2024</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
                             Executed backlink outreach and content optimization. Created SEO-focused blogs that improved domain authority and discoverability.
                         </p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-400 dark:border-l-slate-700 reveal delay-200">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Freelance Strategist</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Remote | Jan 2023 - Jun 2024</p>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    <div class="glass-card p-6 rounded-2xl relative border-l-4 border-l-slate-700 reveal delay-200">
+                        <h3 class="text-xl font-bold text-white">Freelance Strategist</h3>
+                        <p class="text-slate-400 text-sm mb-4 font-semibold">Remote | Jan 2023 - Jun 2024</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
                             Scaled a YouTube channel to 100K+ Subscribers. Managed SEO and technical optimization for NGO websites, delivering measurable traffic growth.
                         </p>
                     </div>
@@ -280,51 +254,51 @@
             </div>
 
             <div>
-                <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-slate-900 dark:text-white">
-                    <i data-lucide="graduation-cap" class="text-purple-500"></i> Education
+                <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-white">
+                    <i data-lucide="graduation-cap" class="text-purple-600"></i> Education
                 </h2>
 
                 <div class="space-y-8 mb-12">
                     <div class="glass-card p-6 rounded-2xl flex gap-4 items-start reveal">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-400 shrink-0">
                             <i data-lucide="book-open"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Master of Computer Applications (MCA)</h3>
-                            <p class="text-slate-500 dark:text-slate-400 text-sm">Mohanlal Sukhadia University | 2022 - 2024</p>
+                            <h3 class="text-lg font-bold text-white">Master of Computer Applications (MCA)</h3>
+                            <p class="text-slate-400 text-sm font-semibold">Mohanlal Sukhadia University | 2022 - 2024</p>
                         </div>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl flex gap-4 items-start reveal delay-100">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-400 shrink-0">
                             <i data-lucide="book"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">B.Sc. Computer Science</h3>
-                            <p class="text-slate-500 dark:text-slate-400 text-sm">Mohanlal Sukhadia University | 2019 - 2022</p>
+                            <h3 class="text-lg font-bold text-white">B.Sc. Computer Science</h3>
+                            <p class="text-slate-400 text-sm font-semibold">Mohanlal Sukhadia University | 2019 - 2022</p>
                         </div>
                     </div>
                 </div>
 
-                <h2 class="text-xl font-bold mb-6 flex items-center gap-2 reveal text-slate-900 dark:text-white">
-                    <i data-lucide="award" class="text-yellow-500"></i> Certifications
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2 reveal text-white">
+                    <i data-lucide="award" class="text-yellow-600"></i> Certifications
                 </h2>
                 <div class="grid grid-cols-2 gap-4 reveal">
-                    <div class="glass-card p-4 rounded-xl text-center hover:bg-slate-50 dark:hover:bg-white/5 cursor-default">
+                    <div class="glass-card p-4 rounded-xl text-center hover:bg-white/5 cursor-default">
                         <i class="fa-brands fa-google text-2xl text-slate-400 mb-2"></i>
-                        <p class="text-sm font-bold text-slate-800 dark:text-white">Google Analytics</p>
+                        <p class="text-sm font-bold text-white">Google Analytics</p>
                     </div>
-                    <div class="glass-card p-4 rounded-xl text-center hover:bg-slate-50 dark:hover:bg-white/5 cursor-default">
+                    <div class="glass-card p-4 rounded-xl text-center hover:bg-white/5 cursor-default">
                         <i class="fa-solid fa-bullhorn text-2xl text-slate-400 mb-2"></i>
-                        <p class="text-sm font-bold text-slate-800 dark:text-white">HubSpot Inbound</p>
+                        <p class="text-sm font-bold text-white">HubSpot Inbound</p>
                     </div>
-                    <div class="glass-card p-4 rounded-xl text-center hover:bg-slate-50 dark:hover:bg-white/5 cursor-default">
+                    <div class="glass-card p-4 rounded-xl text-center hover:bg-white/5 cursor-default">
                         <i class="fa-solid fa-chart-line text-2xl text-slate-400 mb-2"></i>
-                        <p class="text-sm font-bold text-slate-800 dark:text-white">SEMrush SEO</p>
+                        <p class="text-sm font-bold text-white">SEMrush SEO</p>
                     </div>
-                    <div class="glass-card p-4 rounded-xl text-center hover:bg-slate-50 dark:hover:bg-white/5 cursor-default">
+                    <div class="glass-card p-4 rounded-xl text-center hover:bg-white/5 cursor-default">
                         <i class="fa-brands fa-meta text-2xl text-slate-400 mb-2"></i>
-                        <p class="text-sm font-bold text-slate-800 dark:text-white">Meta Ads</p>
+                        <p class="text-sm font-bold text-white">Meta Ads</p>
                     </div>
                 </div>
             </div>
@@ -334,97 +308,97 @@
     <section id="skills" class="py-24 relative">
         <div class="container mx-auto px-6">
             <div class="mb-16 text-center reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Functional Expertise</h2>
-                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">A breakdown of my capabilities across the digital landscape.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Functional Expertise</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">A breakdown of my capabilities across the digital landscape.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                <div class="glass-card p-6 rounded-2xl hover:bg-blue-50 dark:hover:bg-blue-900/10 group reveal delay-0">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 rounded-2xl hover:bg-blue-900/10 group reveal delay-0">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">SEO & Growth</h3>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Technical Audits</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Keyword Strategy</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Backlink Building</li>
+                    <h3 class="text-lg font-bold text-white mb-3">SEO & Growth</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div> Technical Audits</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div> Keyword Strategy</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div> Backlink Building</li>
                     </ul>
                 </div>
 
-                <div class="glass-card p-6 rounded-2xl hover:bg-purple-50 dark:hover:bg-purple-900/10 group reveal delay-100">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-600 dark:text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 rounded-2xl hover:bg-purple-900/10 group reveal delay-100">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-bullseye text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Performance Ads</h3>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Google Ads (PPC)</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Meta/FB Ads</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> ROAS Optimization</li>
+                    <h3 class="text-lg font-bold text-white mb-3">Performance Ads</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div> Google Ads (PPC)</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div> Meta/FB Ads</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div> ROAS Optimization</li>
                     </ul>
                 </div>
 
-                <div class="glass-card p-6 rounded-2xl hover:bg-red-50 dark:hover:bg-red-900/10 group reveal delay-200">
-                    <div class="w-12 h-12 bg-red-100 dark:bg-red-500/20 rounded-xl flex items-center justify-center text-red-600 dark:text-red-400 mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 rounded-2xl hover:bg-red-900/10 group reveal delay-200">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center text-red-400 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-brands fa-youtube text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Content Strategy</h3>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-500"></div> YouTube Growth</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-500"></div> Social Engagement</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-500"></div> Viral Scripting</li>
+                    <h3 class="text-lg font-bold text-white mb-3">Content Strategy</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div> YouTube Growth</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div> Social Engagement</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-red-600"></div> Viral Scripting</li>
                     </ul>
                 </div>
 
-                <div class="glass-card p-6 rounded-2xl hover:bg-green-50 dark:hover:bg-green-900/10 group reveal delay-300">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-500/20 rounded-xl flex items-center justify-center text-green-600 dark:text-green-400 mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 rounded-2xl hover:bg-green-900/10 group reveal delay-300">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-code text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Web & Analytics</h3>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> WordPress Dev</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Python Automation</li>
-                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Data Reporting</li>
+                    <h3 class="text-lg font-bold text-white mb-3">Web & Analytics</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div> WordPress Dev</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div> Python Automation</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div> Data Reporting</li>
                     </ul>
                 </div>
             </div>
 
             <div class="reveal">
-                <h3 class="text-center text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8">Tools I Master</h3>
-                <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-90 dark:opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+                <h3 class="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Tools I Master</h3>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-wordpress text-4xl text-blue-600 dark:text-blue-300"></i>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">WordPress</span>
+                        <i class="fa-brands fa-wordpress text-4xl text-blue-300"></i>
+                        <span class="text-xs text-slate-500 font-semibold">WordPress</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-google text-4xl text-orange-500 dark:text-orange-400"></i>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">Analytics</span>
+                        <i class="fa-brands fa-google text-4xl text-orange-400"></i>
+                        <span class="text-xs text-slate-500 font-semibold">Analytics</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-python text-4xl text-blue-500 dark:text-yellow-300"></i>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">Python</span>
+                        <i class="fa-brands fa-python text-4xl text-yellow-300"></i>
+                        <span class="text-xs text-slate-500 font-semibold">Python</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-hubspot text-4xl text-orange-600 dark:text-orange-500"></i>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">HubSpot</span>
+                        <i class="fa-brands fa-hubspot text-4xl text-orange-500"></i>
+                        <span class="text-xs text-slate-500 font-semibold">HubSpot</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
                         <i class="fa-brands fa-mailchimp text-4xl text-yellow-500"></i>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">Mailchimp</span>
+                        <span class="text-xs text-slate-500 font-semibold">Mailchimp</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 hover:scale-110 transition-transform">
-                        <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">Sem</div>
-                        <span class="text-xs text-slate-600 dark:text-slate-500">SEMrush</span>
+                        <div class="text-3xl font-bold text-purple-400">Sem</div>
+                        <span class="text-xs text-slate-500 font-semibold">SEMrush</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-24 bg-slate-100/50 dark:bg-black/20">
+    <section id="projects" class="py-24 bg-black/20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Featured Projects</h2>
-                <p class="text-slate-600 dark:text-slate-400">Recent work delivering impact across different verticals.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Featured Projects</h2>
+                <p class="text-slate-400">Recent work delivering impact across different verticals.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -432,12 +406,12 @@
                     <div class="h-2 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded">Gaming Blog</span>
-                            <i data-lucide="gamepad-2" class="w-5 h-5 text-slate-400 group-hover:text-purple-500 transition-colors"></i>
+                            <span class="text-xs font-bold px-2 py-1 bg-purple-500/20 text-purple-400 rounded">Gaming Blog</span>
+                            <i data-lucide="gamepad-2" class="w-5 h-5 text-slate-400 group-hover:text-purple-600 transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">The Digital Viral</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Built and scaled a gaming news hub. Implemented schema markup and content silos to drive organic traffic in a competitive niche.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-purple-400 transition-colors">The Digital Viral</h3>
+                        <p class="text-slate-400 text-sm mb-6">Built and scaled a gaming news hub. Implemented schema markup and content silos to drive organic traffic in a competitive niche.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i> SEO & Content Strategy
                         </div>
                     </div>
@@ -447,12 +421,12 @@
                     <div class="h-2 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded">SaaS / B2B</span>
-                            <i data-lucide="trending-up" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors"></i>
+                            <span class="text-xs font-bold px-2 py-1 bg-blue-500/20 text-blue-400 rounded">SaaS / B2B</span>
+                            <i data-lucide="trending-up" class="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">60% Traffic Boost</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Technical SEO overhaul and content gap analysis that skyrocketed organic rankings for a client website in 6 months.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">60% Traffic Boost</h3>
+                        <p class="text-slate-400 text-sm mb-6">Technical SEO overhaul and content gap analysis that skyrocketed organic rankings for a client website in 6 months.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="arrow-up-right" class="w-4 h-4 mr-2"></i> Record Growth
                         </div>
                     </div>
@@ -462,12 +436,12 @@
                     <div class="h-2 bg-gradient-to-r from-red-500 to-pink-500"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 rounded">Social Media</span>
-                            <i data-lucide="youtube" class="w-5 h-5 text-slate-400 group-hover:text-red-500 transition-colors"></i>
+                            <span class="text-xs font-bold px-2 py-1 bg-red-500/20 text-red-400 rounded">Social Media</span>
+                            <i data-lucide="youtube" class="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">100K+ Subscribers</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Strategic content planning and community management focusing on retention metrics and viral thumbnails.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-red-400 transition-colors">100K+ Subscribers</h3>
+                        <p class="text-slate-400 text-sm mb-6">Strategic content planning and community management focusing on retention metrics and viral thumbnails.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="users" class="w-4 h-4 mr-2"></i> High Engagement
                         </div>
                     </div>
@@ -477,12 +451,12 @@
                     <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-500"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 rounded">Development</span>
-                            <i data-lucide="bot" class="w-5 h-5 text-slate-400 group-hover:text-green-500 transition-colors"></i>
+                            <span class="text-xs font-bold px-2 py-1 bg-green-500/20 text-green-400 rounded">Development</span>
+                            <i data-lucide="bot" class="w-5 h-5 text-slate-400 group-hover:text-green-600 transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">University Chatbot</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Built an automated query system using HTML, CSS, JS, and Python/MySQL to handle student inquiries efficiently.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-green-400 transition-colors">University Chatbot</h3>
+                        <p class="text-slate-400 text-sm mb-6">Built an automated query system using HTML, CSS, JS, and Python/MySQL to handle student inquiries efficiently.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="code" class="w-4 h-4 mr-2"></i> Automation
                         </div>
                     </div>
@@ -492,12 +466,12 @@
                     <div class="h-2 bg-gradient-to-r from-orange-400 to-yellow-500"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded">Non-Profit</span>
-                            <i data-lucide="globe" class="w-5 h-5 text-slate-400 group-hover:text-orange-500 transition-colors"></i>
+                            <span class="text-xs font-bold px-2 py-1 bg-orange-500/20 text-orange-400 rounded">Non-Profit</span>
+                            <i data-lucide="globe" class="w-5 h-5 text-slate-400 group-hover:text-orange-600 transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">NGO Website Opt.</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Managed SEO for a non-profit, performing on-page optimizations and blog publishing to increase cause awareness.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-orange-400 transition-colors">NGO Website Opt.</h3>
+                        <p class="text-slate-400 text-sm mb-6">Managed SEO for a non-profit, performing on-page optimizations and blog publishing to increase cause awareness.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="heart" class="w-4 h-4 mr-2"></i> Brand Visibility
                         </div>
                     </div>
@@ -507,12 +481,12 @@
                     <div class="h-2 bg-gradient-to-r from-slate-500 to-slate-700"></div>
                     <div class="p-8 flex-grow">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="text-xs font-bold px-2 py-1 bg-slate-200 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 rounded">Data Science</span>
+                            <span class="text-xs font-bold px-2 py-1 bg-slate-700/50 text-slate-300 rounded">Data Science</span>
                             <i data-lucide="binary" class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">Marks Prediction</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Developed a Machine Learning model in Python to analyze historical data and predict academic performance patterns.</p>
-                        <div class="mt-auto flex items-center text-green-600 dark:text-green-400 font-bold text-sm">
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-blue-600 transition-colors">Marks Prediction</h3>
+                        <p class="text-slate-400 text-sm mb-6">Developed a Machine Learning model in Python to analyze historical data and predict academic performance patterns.</p>
+                        <div class="mt-auto flex items-center text-green-400 font-bold text-sm">
                             <i data-lucide="cpu" class="w-4 h-4 mr-2"></i> Python & ML
                         </div>
                     </div>
@@ -523,37 +497,37 @@
 
     <section id="contact" class="py-24 relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-4xl relative z-10">
-            <div class="glass-card rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-white/10 shadow-2xl reveal">
+            <div class="glass-card rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl reveal">
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Ready to Scale?</h2>
-                    <p class="text-slate-600 dark:text-slate-400">Send me a message for collaborations, audits, or just to say hi.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-white">Ready to Scale?</h2>
+                    <p class="text-slate-400">Send me a message for collaborations, audits, or just to say hi.</p>
                 </div>
 
                 <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm text-slate-600 dark:text-slate-400 mb-2">Name</label>
-                            <input name="name" required class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors">
+                            <label class="block text-sm text-slate-400 mb-2">Name</label>
+                            <input name="name" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
                         </div>
                         <div>
-                            <label class="block text-sm text-slate-600 dark:text-slate-400 mb-2">Email</label>
-                            <input name="email" type="email" required class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors">
+                            <label class="block text-sm text-slate-400 mb-2">Email</label>
+                            <input name="email" type="email" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-sm text-slate-600 dark:text-slate-400 mb-2">Subject</label>
-                        <select name="subject" class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors">
-                            <option class="text-slate-900 dark:bg-slate-900 dark:text-white">SEO Audit</option>
-                            <option class="text-slate-900 dark:bg-slate-900 dark:text-white">PPC Campaign</option>
-                            <option class="text-slate-900 dark:bg-slate-900 dark:text-white">Content Strategy</option>
-                            <option class="text-slate-900 dark:bg-slate-900 dark:text-white">General Inquiry</option>
+                        <label class="block text-sm text-slate-400 mb-2">Subject</label>
+                        <select name="subject" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
+                            <option class="bg-slate-900 text-white">SEO Audit</option>
+                            <option class="bg-slate-900 text-white">PPC Campaign</option>
+                            <option class="bg-slate-900 text-white">Content Strategy</option>
+                            <option class="bg-slate-900 text-white">General Inquiry</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm text-slate-600 dark:text-slate-400 mb-2">Message</label>
-                        <textarea name="message" rows="4" required class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+                        <label class="block text-sm text-slate-400 mb-2">Message</label>
+                        <textarea name="message" rows="4" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
                     </div>
 
                     <button type="submit" id="sendBtn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
@@ -567,19 +541,19 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-500 dark:text-slate-400 text-sm border-t border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-slate-900">
+    <footer class="py-12 text-center text-slate-400 text-sm border-t border-white/5 bg-slate-900">
         <div class="container mx-auto px-6 mb-8">
             <div class="max-w-2xl mx-auto mb-8 relative h-20">
                 <div class="quote-slide active-quote">
-                    <p class="text-lg font-serif italic text-slate-700 dark:text-slate-300">"Marketing is no longer about the stuff that you make, but about the stories you tell."</p>
+                    <p class="text-lg font-serif italic text-slate-300">"Marketing is no longer about the stuff that you make, but about the stories you tell."</p>
                     <span class="text-xs font-bold text-blue-500 uppercase mt-2 block">– Seth Godin</span>
                 </div>
                 <div class="quote-slide">
-                    <p class="text-lg font-serif italic text-slate-700 dark:text-slate-300">"Content is fire; social media is gasoline."</p>
+                    <p class="text-lg font-serif italic text-slate-300">"Content is fire; social media is gasoline."</p>
                     <span class="text-xs font-bold text-blue-500 uppercase mt-2 block">– Jay Baer</span>
                 </div>
                 <div class="quote-slide">
-                    <p class="text-lg font-serif italic text-slate-700 dark:text-slate-300">"Google only loves you when everyone else loves you first."</p>
+                    <p class="text-lg font-serif italic text-slate-300">"Google only loves you when everyone else loves you first."</p>
                     <span class="text-xs font-bold text-blue-500 uppercase mt-2 block">– Wendy Piersall</span>
                 </div>
             </div>
@@ -587,7 +561,7 @@
             <div class="flex justify-center gap-6 mb-6">
                 <a href="https://www.linkedin.com/in/himanshumeghwal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
                 <a href="https://www.instagram.com/himanshu_meghwal_2001?igsh=czJoeTB4MXZlbmE5" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
             </div>
         </div>
         <p>&copy; 2025 Himanshu Meghwal. All rights reserved.</p>
@@ -597,33 +571,7 @@
         // --- 1. Icons Init ---
         lucide.createIcons();
 
-        // --- 2. Dark/Light Mode Toggle ---
-        const toggleBtn = document.getElementById('theme-toggle');
-        const mobileToggleBtn = document.getElementById('mobile-theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-
-        function updateTheme(isDark) {
-            if (isDark) {
-                html.classList.add('dark');
-                themeIcon.setAttribute('data-lucide', 'sun');
-            } else {
-                html.classList.remove('dark');
-                themeIcon.setAttribute('data-lucide', 'moon');
-            }
-            lucide.createIcons();
-        }
-
-        const toggleTheme = () => {
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            updateTheme(isDark);
-        };
-
-        toggleBtn.addEventListener('click', toggleTheme);
-        mobileToggleBtn.addEventListener('click', toggleTheme);
-
-        // --- 3. Scroll Reveal ---
+        // --- 2. Scroll Reveal ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -634,7 +582,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- 4. Quote Slider Logic ---
+        // --- 3. Quote Slider Logic ---
         let slideIndex = 0;
         const slides = document.getElementsByClassName("quote-slide");
         
@@ -649,7 +597,7 @@
         }
         showSlides();
 
-        // --- 5. Typewriter Effect ---
+        // --- 4. Typewriter Effect ---
         const typeWriterElement = document.getElementById('typewriter');
         const phrases = ["Digital Marketing Expert", "Growth Architect", "SEO Specialist", "Content Strategist"];
         let phraseIndex = 0;
@@ -684,7 +632,7 @@
         // Start Typewriter
         document.addEventListener('DOMContentLoaded', typeWriter);
 
-        // --- 6. Mobile Menu ---
+        // --- 5. Mobile Menu ---
         const menuBtn = document.getElementById('mobile-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         let isMenuOpen = false;
@@ -708,7 +656,7 @@
             });
         });
 
-        // --- 7. Form Logic ---
+        // --- 6. Form Logic ---
         const form = document.getElementById("contactForm");
         const successMsg = document.getElementById("successMsg");
         const errorMsg = document.getElementById("errorMsg");
