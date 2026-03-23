@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="E4SIuhWKDAboXZpfxCns0707SbeVBvK2_Z5pHEJFyvw" />
-    <title>Himanshu Meghwal | Growth Operator & E-com Specialist</title>
-    <meta name="description" content="Growth Marketer and E-commerce Operator specializing in AI Automation and Marketplace SEO.">
+    <title>Himanshu Meghwal | Growth Marketer & E-commerce Expert</title>
+    <meta name="description" content="Growth Marketer and E-commerce Operator specializing in AI Automation, Marketplace SEO, and Revenue Systems.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,8 +20,9 @@
                     fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
                     colors: {
                         brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
-                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            950: '#020617',
                         }
                     }
                 }
@@ -32,431 +33,356 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; }
         
-        .glass {
+        .glass-card {
             backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
-        .reveal { opacity: 0; transform: translateY(15px); transition: all 0.5s ease-out; }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Smooth scroll margin for fixed nav */
         section { scroll-margin-top: 80px; }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
 
         .orb {
             position: fixed; border-radius: 50%; filter: blur(100px);
-            z-index: -1; animation: pulse 10s infinite alternate ease-in-out;
-            pointer-events: none;
+            z-index: -1; pointer-events: none; opacity: 0.4;
+            animation: pulse 12s infinite alternate ease-in-out;
         }
-        @keyframes pulse { from { opacity: 0.2; transform: scale(1); } to { opacity: 0.4; transform: scale(1.2); } }
+        @keyframes pulse { from { transform: scale(1) translate(0,0); } to { transform: scale(1.2) translate(20px, -20px); } }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-[#020617] text-slate-100 selection:bg-brand-500 selection:text-white">
+<body class="selection:bg-brand-500 selection:text-white overflow-x-hidden">
 
-    <!-- Background Decoration -->
-    <div class="orb w-80 h-80 bg-brand-600/20 top-[-10%] left-[-10%]"></div>
-    <div class="orb w-96 h-96 bg-purple-600/10 bottom-[-10%] right-[-10%]"></div>
+    <div class="orb w-96 h-96 bg-brand-600/10 -top-20 -left-20"></div>
+    <div class="orb w-[500px] h-[500px] bg-purple-600/5 -bottom-20 -right-20"></div>
 
     <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-slate-950/80 backdrop-blur-lg">
-        <div class="container mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight">HIMANSHU<span class="text-brand-500">.</span></a>
+    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-brand-950/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-xl font-extrabold tracking-tighter">HIMANSHU<span class="text-brand-500">.</span></a>
             
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
-                <a href="#impact" class="hover:text-brand-400 transition-colors">Impact</a>
-                <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
-                <a href="#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
-                <a href="#contact" class="px-5 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-all shadow-lg shadow-brand-500/20">Scale Now</a>
+            <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#education" class="hover:text-white transition-colors">Education</a>
+                <a href="#stack" class="hover:text-white transition-colors">Stack</a>
+                <a href="#certs" class="hover:text-white transition-colors">Certs</a>
+                <a href="#contact" class="px-5 py-2 bg-brand-600 text-white rounded hover:bg-brand-700 transition-all">Collaborate</a>
             </div>
 
-            <!-- Mobile Toggle -->
-            <button id="mobile-btn" class="md:hidden p-2 text-slate-300" aria-label="Toggle Menu">
+            <button id="mobile-btn" class="md:hidden text-slate-300">
                 <i data-lucide="menu" id="menu-icon"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-b border-white/5 px-4 py-6 space-y-4 shadow-2xl">
-            <a href="#about" class="block text-lg font-semibold text-slate-200 mobile-link">Strategy</a>
-            <a href="#impact" class="block text-lg font-semibold text-slate-200 mobile-link">Experience</a>
-            <a href="#skills" class="block text-lg font-semibold text-slate-200 mobile-link">Expertise</a>
-            <a href="#reviews" class="block text-lg font-semibold text-slate-200 mobile-link">Reviews</a>
-            <a href="#contact" class="block w-full py-3 bg-brand-600 text-center rounded-xl font-bold mobile-link">Get in Touch</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-950 border-b border-white/5 px-6 py-8 space-y-6">
+            <a href="#experience" class="block text-xl font-bold mobile-link">Experience</a>
+            <a href="#education" class="block text-xl font-bold mobile-link">Education</a>
+            <a href="#stack" class="block text-xl font-bold mobile-link">Tech Stack</a>
+            <a href="#certs" class="block text-xl font-bold mobile-link">Certifications</a>
+            <a href="#contact" class="block w-full py-4 bg-brand-600 text-center rounded-xl font-black mobile-link">Contact</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header id="about" class="min-h-screen flex items-center pt-20 px-4">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <!-- HERO -->
+    <header class="min-h-screen flex items-center pt-20 px-6">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[10px] font-bold uppercase tracking-widest mb-6">
-                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-ping"></span>
-                    Available for Q2 Projects
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+                    System Status: Growth Mode
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
-                    I Build Growth <br class="hidden md:block">
-                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400"></span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.05] mb-8 tracking-tight">
+                    Himanshu Meghwal <br>
+                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-blue-500 to-purple-500"></span>
                 </h1>
-                <p class="text-base md:text-lg text-slate-400 mb-8 max-w-xl leading-relaxed">
-                    Growth-focused <span class="text-slate-100 font-medium">Digital Marketer</span> and <span class="text-slate-100 font-medium">E-commerce Operator</span>. I specialize in scaling brands through <span class="text-brand-400">AI Automation</span> and Marketplace SEO strategies that actually convert.
+                <p class="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+                    High-level <span class="text-white font-semibold">Growth Marketer</span>. I specialize in the intersection of <span class="text-white">AI Automation</span> and Marketplace SEO to build self-scaling revenue engines for global E-commerce brands.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#impact" class="px-8 py-4 bg-white text-slate-950 rounded-xl font-bold shadow-xl hover:bg-slate-100 transition-all text-center">View Impact</a>
-                    <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="px-8 py-4 glass rounded-xl font-bold text-slate-200 border border-white/10 hover:border-brand-500/50 transition-all text-center flex items-center justify-center gap-2">
-                        <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#experience" class="px-10 py-5 bg-white text-brand-950 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-slate-200 transition-all text-center">View Impact</a>
+                    <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="px-10 py-5 glass-card rounded-lg font-black uppercase tracking-widest text-xs text-white border border-white/10 text-center flex items-center justify-center gap-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> Technical CV
                     </a>
                 </div>
             </div>
             
             <div class="reveal delay-200 relative hidden lg:block">
-                <div class="absolute inset-0 bg-brand-500/20 blur-[100px] rounded-full"></div>
-                <img src="Photo.png" alt="Himanshu Meghwal" class="relative z-10 w-full max-w-md mx-auto rounded-3xl border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute inset-0 bg-brand-500/20 blur-[120px] rounded-full"></div>
+                <div class="relative z-10 p-4 glass-card rounded-[40px] rotate-2 hover:rotate-0 duration-700">
+                    <img src="Photo.png" alt="Himanshu Meghwal" class="rounded-[30px] w-full grayscale contrast-125 hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- IMPACT STATS -->
-    <section class="py-12 bg-slate-900/40 border-y border-white/5">
-        <div class="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="reveal text-center">
-                <p class="text-3xl font-bold text-white mb-1">3+</p>
-                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Years Exp</p>
+    <!-- STATS -->
+    <section class="py-20 border-y border-white/5 bg-white/[0.02]">
+        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+            <div class="reveal">
+                <p class="text-4xl font-extrabold text-white mb-2">3+</p>
+                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Years of Ops</p>
             </div>
-            <div class="reveal delay-100 text-center">
-                <p class="text-3xl font-bold text-brand-400 mb-1">100K+</p>
-                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Channel Reach</p>
+            <div class="reveal delay-100">
+                <p class="text-4xl font-extrabold text-brand-500 mb-2">100K+</p>
+                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Channel Reach</p>
             </div>
-            <div class="reveal delay-200 text-center">
-                <p class="text-3xl font-bold text-purple-400 mb-1">AI-Ready</p>
-                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Workflow Expert</p>
+            <div class="reveal delay-200">
+                <p class="text-4xl font-extrabold text-purple-500 mb-2">AI</p>
+                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">First Workflows</p>
             </div>
-            <div class="reveal delay-300 text-center">
-                <p class="text-3xl font-bold text-emerald-400 mb-1">60%</p>
-                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Avg Traffic Lift</p>
+            <div class="reveal delay-300">
+                <p class="text-4xl font-extrabold text-emerald-500 mb-2">60%</p>
+                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Traffic Velocity</p>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE / IMPACT -->
-    <section id="impact" class="py-24 px-4">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Impact Report</h2>
-                    <p class="text-slate-500">Building revenue systems, not just running ads.</p>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-32 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-4 reveal">Chronology</h2>
+            <h2 class="text-4xl font-extrabold mb-16 reveal">Professional Impact</h2>
+            
+            <div class="space-y-12">
+                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-brand-600">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-brand-500 mb-2 block">Current Focus</span>
+                            <h3 class="text-2xl font-extrabold">E-commerce Executive</h3>
+                            <p class="text-slate-400 font-bold mt-1">Pushpa Arts Pvt. Ltd.</p>
+                        </div>
+                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">DEC 2025 — PRESENT</p>
+                    </div>
+                    <ul class="grid md:grid-cols-2 gap-6 text-slate-400 text-sm">
+                        <li class="flex gap-3"><i data-lucide="terminal" class="w-5 h-5 text-brand-500 shrink-0"></i> Marketplace Dominance: Amazon, Etsy, & eBay SEO.</li>
+                        <li class="flex gap-3"><i data-lucide="terminal" class="w-5 h-5 text-brand-500 shrink-0"></i> Growth Modeling: Identifying multi-channel revenue levers.</li>
+                    </ul>
                 </div>
+
+                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-slate-800 opacity-80">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-extrabold">Digital Marketing Executive</h3>
+                            <p class="text-slate-400 font-bold mt-1">Pushpa Arts Pvt. Ltd.</p>
+                        </div>
+                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">NOV 2024 — DEC 2025</p>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
+                        Architecting technical SEO frameworks and executing data-driven ad campaigns across Google and Meta. Focused on ROAS maximization and organic search authority.
+                    </p>
+                </div>
+
+                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-purple-600">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-extrabold">Growth Consultant</h3>
+                            <p class="text-purple-400 font-bold mt-1">Independent / Freelance</p>
+                        </div>
+                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">JAN 2023 — PRESENT</p>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
+                        Deploying AI-driven automation for Amazon KDP publishers. Launching sequences, metadata optimization, and content velocity systems globally.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-32 px-6 bg-brand-950/40">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-16 text-center reveal">Academic Foundation</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-10 rounded-3xl reveal">
+                    <div class="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400 mb-8">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-2 text-white">Master of Computer Applications</h3>
+                    <p class="text-brand-500 font-bold mb-4">Mohanlal Sukhadia University</p>
+                    <p class="text-[10px] font-black text-slate-500 tracking-widest">2022 — 2024</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl reveal delay-100">
+                    <div class="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400 mb-8">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-2 text-white">B.Sc. Computer Science</h3>
+                    <p class="text-brand-500 font-bold mb-4">Mohanlal Sukhadia University</p>
+                    <p class="text-[10px] font-black text-slate-500 tracking-widest">2019 — 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK & TOOLS -->
+    <section id="stack" class="py-32 px-6">
+        <div class="container mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h2 class="text-4xl font-extrabold mb-6">Technical Infrastructure</h2>
+                <p class="text-slate-500">I leverage a high-frequency stack to bypass manual bottlenecks.</p>
             </div>
             
-            <div class="grid lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="glass p-8 rounded-2xl reveal">
-                    <div class="flex justify-between mb-6">
-                        <div class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400">
-                            <i data-lucide="trending-up"></i>
-                        </div>
-                        <span class="text-[10px] font-bold text-brand-400 bg-brand-500/10 px-2 py-1 rounded">Active</span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-32 reveal">
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="font-black text-xs uppercase tracking-widest text-brand-500 mb-6">Marketplaces</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Amazon Seller</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Etsy SEO</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">KDP Scaling</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">eBay Ads</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">E-commerce Executive</h3>
-                    <p class="text-sm text-brand-500 font-bold mb-4">Pushpa Arts Pvt. Ltd.</p>
-                    <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500 shrink-0"></i> Marketplace SEO: Amazon, Etsy, eBay.</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500 shrink-0"></i> Data Analysis & Growth Modeling.</li>
-                    </ul>
                 </div>
-                <!-- Card 2 -->
-                <div class="glass p-8 rounded-2xl reveal delay-100">
-                    <div class="flex justify-between mb-6">
-                        <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400">
-                            <i data-lucide="zap"></i>
-                        </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="font-black text-xs uppercase tracking-widest text-purple-500 mb-6">Automation</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Make.com</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Python Scripts</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GPT Forge</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Data Mining</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Growth Consultant</h3>
-                    <p class="text-sm text-purple-400 font-bold mb-4">Independent</p>
-                    <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 shrink-0"></i> Amazon KDP Strategy & Scaling.</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 shrink-0"></i> AI content pipelines for authors.</li>
-                    </ul>
                 </div>
-                <!-- Card 3 -->
-                <div class="glass p-8 rounded-2xl reveal delay-200">
-                    <div class="flex justify-between mb-6">
-                        <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400">
-                            <i data-lucide="bar-chart-3"></i>
-                        </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="font-black text-xs uppercase tracking-widest text-emerald-500 mb-6">Growth SEO</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Topical Mapping</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Ahrefs</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">ScreamingFrog</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GSC Audits</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Digital Marketer</h3>
-                    <p class="text-sm text-emerald-400 font-bold mb-4">Pushpa Arts Pvt. Ltd.</p>
-                    <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> Technical SEO & ROAS optimization.</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> Multi-channel ad management.</li>
-                    </ul>
                 </div>
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="font-black text-xs uppercase tracking-widest text-red-500 mb-6">Marketing Ops</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">HubSpot CRM</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GA4 Analytics</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">WordPress</span>
+                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Meta Ads</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-12 opacity-30 hover:opacity-100 transition-opacity duration-500 reveal">
+                <i class="fa-brands fa-wordpress text-5xl"></i>
+                <i class="fa-brands fa-python text-5xl"></i>
+                <i class="fa-brands fa-hubspot text-5xl"></i>
+                <i class="fa-brands fa-amazon text-5xl"></i>
+                <i class="fa-solid fa-gears text-5xl"></i>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS GRID -->
-    <section id="skills" class="py-24 px-4 bg-slate-900/20">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 reveal">Functional Tech Stack</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
-                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
-                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="shopping-cart" class="text-brand-500 w-5 h-5"></i> E-commerce</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Amazon Central</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Etsy SEO</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">eBay</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">KDP</span>
-                    </div>
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="py-32 px-6 bg-brand-950/30">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-16 text-center reveal">Verifications</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i class="fa-brands fa-google text-3xl text-slate-500 mb-4 block"></i>
+                    <h4 class="text-[10px] font-black uppercase">GA4 Expert</h4>
                 </div>
-                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
-                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="bot" class="text-purple-500 w-5 h-5"></i> AI Ops</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Make.com</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">GPT Prompting</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Automation</span>
-                    </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i class="fa-solid fa-bullseye text-3xl text-slate-500 mb-4 block"></i>
+                    <h4 class="text-[10px] font-black uppercase">SEMrush SEO</h4>
                 </div>
-                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
-                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="search" class="text-emerald-500 w-5 h-5"></i> Advanced SEO</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Technical Audits</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Topical Maps</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Ahrefs</span>
-                    </div>
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i class="fa-brands fa-hubspot text-3xl text-slate-500 mb-4 block"></i>
+                    <h4 class="text-[10px] font-black uppercase">HubSpot Inbound</h4>
                 </div>
-                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
-                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="bar-chart" class="text-red-500 w-5 h-5"></i> Ads</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Meta Ads</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Google Ads</span>
-                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Amazon PPC</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="reviews" class="py-24 px-4">
-        <div class="container mx-auto">
-            <h2 id="feedback-title" class="text-3xl font-bold text-center mb-16 reveal cursor-pointer">Stakeholder Feedback</h2>
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="glass p-8 rounded-3xl reveal h-fit">
-                    <h3 class="text-xl font-bold mb-4">Leave a Review</h3>
-                    <form id="testimonialForm" class="space-y-4">
-                        <input type="text" id="reviewerName" placeholder="Full Name" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm">
-                        <input type="text" id="reviewerCompany" placeholder="Brand / Position" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm">
-                        <textarea id="reviewText" rows="4" placeholder="How did I help you scale?" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm"></textarea>
-                        <button type="submit" id="reviewSubmitBtn" class="w-full py-4 bg-brand-600 hover:bg-brand-700 rounded-xl font-bold transition-all shadow-lg shadow-brand-500/20">Publish Verification</button>
-                    </form>
-                </div>
-                <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6" id="testimonialContainer">
-                    <!-- Loaded Dynamically -->
+                <div class="glass-card p-8 rounded-2xl text-center">
+                    <i class="fa-brands fa-meta text-3xl text-slate-500 mb-4 block"></i>
+                    <h4 class="text-[10px] font-black uppercase">Meta Ad Specialist</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-24 px-4 bg-brand-600">
-        <div class="container mx-auto max-w-3xl text-center">
-            <h2 class="text-4xl font-bold mb-4">Let's Build Your Machine</h2>
-            <p class="text-brand-100 mb-12">I'm currently taking select projects for Q2. Tell me about your bottleneck.</p>
-            
-            <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="glass p-8 md:p-12 rounded-3xl text-left bg-white/10 border-white/20">
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-brand-200">Identity</label>
-                        <input name="name" placeholder="Full Name" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200">
+    <section id="contact" class="py-32 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="reveal">
+                <h2 class="text-5xl font-extrabold mb-8">Deploy Your Next <span class="text-brand-500">Growth Engine</span></h2>
+                <p class="text-slate-400 mb-16 max-w-2xl mx-auto text-lg">Currently screening high-impact projects. If you have a bottleneck, I have the system.</p>
+                
+                <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="glass-card p-8 md:p-12 rounded-[40px] text-left border-white/10 shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Full Name</label>
+                            <input name="name" placeholder="John Doe" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600">
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Email Terminal</label>
+                            <input name="email" type="email" placeholder="john@company.com" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600">
+                        </div>
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-brand-200">Reach</label>
-                        <input name="email" type="email" placeholder="Email Address" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200">
+                    <div class="space-y-3 mb-10">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Project Objective</label>
+                        <textarea name="message" placeholder="Describe the current growth plateau..." rows="5" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600 resize-none"></textarea>
                     </div>
-                </div>
-                <div class="space-y-2 mb-8">
-                    <label class="text-xs font-bold uppercase tracking-widest text-brand-200">The Problem</label>
-                    <textarea name="message" placeholder="Describe the project goal..." rows="4" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200"></textarea>
-                </div>
-                <button type="submit" id="contactSubmitBtn" class="w-full py-5 bg-white text-brand-600 rounded-2xl font-black uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-2xl">Deploy Message</button>
-                <p id="successMsg" class="hidden text-center text-white mt-6 font-bold flex items-center justify-center gap-2">
-                    <i data-lucide="rocket"></i> Mission Logged! Expect contact within 24h.
-                </p>
-            </form>
+                    <button type="submit" id="contactSubmitBtn" class="w-full py-6 bg-brand-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-brand-700 hover:scale-[1.01] transition-all shadow-2xl">Execute Communication</button>
+                    <p id="successMsg" class="hidden text-center text-emerald-400 mt-8 font-black text-sm animate-bounce">
+                        <i data-lucide="check-circle" class="inline w-4 h-4 mr-2"></i> Signal Transmitted Successfully.
+                    </p>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-16 text-center text-slate-500 px-4">
-        <div class="flex justify-center gap-8 mb-8">
-            <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank" class="hover:text-brand-400"><i class="fa-brands fa-linkedin text-2xl"></i></a>
-            <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank" class="hover:text-pink-500"><i class="fa-brands fa-instagram text-2xl"></i></a>
-            <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white"><i class="fa-solid fa-envelope text-2xl"></i></a>
+    <footer class="py-20 text-center text-slate-600 px-6 border-t border-white/5">
+        <div class="flex justify-center gap-10 mb-12">
+            <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+            <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fa-brands fa-instagram text-2xl"></i></a>
+            <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-2xl"></i></a>
         </div>
-        <p class="text-[10px] font-bold uppercase tracking-widest">&copy; 2026 Himanshu Meghwal. Engineered for Growth.</p>
+        <p class="text-[10px] font-black uppercase tracking-[0.5em]">&copy; 2026 Himanshu Meghwal. Precision Scaling.</p>
     </footer>
 
-    <!-- Firebase Integration -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'himanshu-growth-v3';
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        let currentUser = null;
-        let isAdmin = localStorage.getItem('hm_admin_v3') === 'true';
-
-        // Admin Protocol
-        let clicks = 0;
-        document.getElementById('feedback-title').addEventListener('click', () => {
-            clicks++;
-            if (clicks === 3) {
-                const key = prompt("Auth Token Required:");
-                if (key === "7851828437") {
-                    localStorage.setItem('hm_admin_v3', 'true');
-                    alert("Admin verified.");
-                    location.reload();
-                }
-                clicks = 0;
-            }
-        });
-
-        const initAuth = async () => {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (err) { console.error("Auth Failure", err); }
-        };
-
-        onAuthStateChanged(auth, (user) => {
-            currentUser = user;
-            if (user) {
-                const path = ['artifacts', appId, 'public', 'data', 'testimonials'];
-                onSnapshot(query(collection(db, ...path)), (snap) => {
-                    const container = document.getElementById('testimonialContainer');
-                    container.innerHTML = '';
-                    snap.docs.forEach(dSnap => {
-                        const d = dSnap.data();
-                        const card = document.createElement('div');
-                        card.className = "glass p-6 rounded-2xl relative reveal active";
-                        card.innerHTML = `
-                            <p class="text-slate-300 italic mb-4 text-sm leading-relaxed">"${d.text}"</p>
-                            <div class="flex items-center gap-3 border-t border-white/5 pt-4">
-                                <div class="w-8 h-8 bg-brand-500/20 rounded-full flex items-center justify-center text-brand-400 font-bold text-xs">${d.name.charAt(0)}</div>
-                                <div><h4 class="text-xs font-bold text-white">${d.name}</h4><p class="text-[10px] text-slate-500">${d.company}</p></div>
-                            </div>
-                            ${isAdmin ? `<button class="del-btn absolute top-4 right-4 text-red-500 hover:text-red-700 p-2" data-id="${dSnap.id}"><i class="fa-solid fa-trash text-sm"></i></button>` : ''}
-                        `;
-                        container.prepend(card);
-                    });
-                    
-                    document.querySelectorAll('.del-btn').forEach(b => b.onclick = async () => {
-                        if(confirm("Expunge record?")) await deleteDoc(doc(db, ...path, b.dataset.id));
-                    });
-                }, err => console.error("Stream error", err));
-            }
-        });
-
-        initAuth();
-
-        const tForm = document.getElementById('testimonialForm');
-        tForm.onsubmit = async (e) => {
-            e.preventDefault();
-            if (!currentUser) return;
-            const btn = document.getElementById('reviewSubmitBtn');
-            btn.disabled = true;
-            btn.textContent = "Processing...";
-            
-            try {
-                const path = ['artifacts', appId, 'public', 'data', 'testimonials'];
-                await addDoc(collection(db, ...path), {
-                    name: document.getElementById('reviewerName').value,
-                    company: document.getElementById('reviewerCompany').value,
-                    text: document.getElementById('reviewText').value,
-                    createdAt: serverTimestamp()
-                });
-                tForm.reset();
-                btn.textContent = "Log Saved";
-                setTimeout(() => { btn.disabled = false; btn.textContent = "Publish Verification"; }, 3000);
-            } catch (err) { 
-                btn.textContent = "Log Failed"; 
-                btn.disabled = false;
-            }
-        };
-    </script>
-
     <script>
-        // UI Logic
         lucide.createIcons();
-
-        // Reveal animations
-        const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), {threshold: 0.1});
+        const obs = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        // Typewriter - Improved logic
         const tw = document.getElementById('typewriter');
-        const phs = ["Growth Marketers", "E-com Engines", "AI Automations", "SEO Architecture"];
-        let pi = 0, ci = 0, del = false;
-        function type() {
-            const cur = phs[pi];
-            tw.textContent = del ? cur.substring(0, ci--) : cur.substring(0, ci++);
-            if(!del && ci > cur.length) { del = true; setTimeout(type, 2000); }
-            else if(del && ci === 0) { del = false; pi = (pi + 1) % phs.length; setTimeout(type, 500); }
-            else setTimeout(type, del ? 40 : 80);
+        const phrases = ["Growth Engines", "E-com Architecture", "AI Workflows", "Revenue Systems"];
+        let pIdx = 0, charIdx = 0, isDeleting = false;
+
+        function runTypewriter() {
+            const current = phrases[pIdx];
+            tw.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
+            let speed = isDeleting ? 40 : 90;
+            if (!isDeleting && charIdx > current.length) { isDeleting = true; speed = 2000; }
+            else if (isDeleting && charIdx === 0) { isDeleting = false; pIdx = (pIdx + 1) % phrases.length; speed = 500; }
+            setTimeout(runTypewriter, speed);
         }
-        type();
+        runTypewriter();
 
-        // Mobile Menu - Robust Class Toggle
-        const mb = document.getElementById('mobile-btn');
-        const mm = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        mb.onclick = () => {
-            const isOpen = !mm.classList.contains('hidden');
-            mm.classList.toggle('hidden');
-            menuIcon.setAttribute('data-lucide', isOpen ? 'menu' : 'x');
+        const btn = document.getElementById('mobile-btn'), menu = document.getElementById('mobile-menu'), icon = document.getElementById('menu-icon');
+        btn.onclick = () => {
+            const hidden = menu.classList.toggle('hidden');
+            icon.setAttribute('data-lucide', hidden ? 'menu' : 'x');
             lucide.createIcons();
         };
 
-        document.querySelectorAll('.mobile-link').forEach(l => {
-            l.onclick = () => {
-                mm.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            }
-        });
-
-        // Contact Form
-        const cf = document.getElementById('contactForm');
-        cf.onsubmit = () => {
-            const smsg = document.getElementById('successMsg');
-            const btn = document.getElementById('contactSubmitBtn');
-            btn.textContent = "Deploying...";
-            btn.disabled = true;
+        const form = document.getElementById('contactForm');
+        form.onsubmit = () => {
+            document.getElementById('contactSubmitBtn').textContent = "TRANSMITTING...";
+            document.getElementById('contactSubmitBtn').disabled = true;
             setTimeout(() => {
-                smsg.classList.remove('hidden');
-                btn.textContent = "Deployed";
+                document.getElementById('successMsg').classList.remove('hidden');
+                document.getElementById('contactSubmitBtn').textContent = "TRANSMISSION COMPLETE";
             }, 1200);
-        }
+        };
     </script>
 </body>
 </html>
