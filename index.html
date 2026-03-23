@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
 <head>
-    <!-- Google Site Verification - Preserved from original -->
-    <meta name="google-site-verification" content="E4SIuhWKDAboXZpfxCns0707SbeVBvK2_Z5pHEJFyvw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Himanshu Meghwal | Growth Marketer & E-commerce Operator</title>
-    <meta name="description" content="Portfolio of Himanshu Meghwal, a Growth-focused Digital Marketer and E-commerce Operator. Expert in AI Automation, Marketplace SEO, and Technical SEO.">
+    <meta name="google-site-verification" content="E4SIuhWKDAboXZpfxCns0707SbeVBvK2_Z5pHEJFyvw" />
+    <title>Himanshu Meghwal | Growth Operator & E-com Specialist</title>
+    <meta name="description" content="Growth Marketer and E-commerce Operator specializing in AI Automation and Marketplace SEO.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,354 +15,327 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
         }
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; transition: all 0.3s; }
-        .glass-card { backdrop-filter: blur(16px); background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
-        .glass-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.3); box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5); }
-        .orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; animation: float 15s infinite ease-in-out; opacity: 0.3; }
-        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40px, -60px) scale(1.1); } }
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .glass {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reveal { opacity: 0; transform: translateY(15px); transition: all 0.5s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .quote-slide { display: none; }
-        .quote-slide.active-quote { display: block; animation: fadeIn 1s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .testimonial-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+        /* Smooth scroll margin for fixed nav */
+        section { scroll-margin-top: 80px; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+
+        .orb {
+            position: fixed; border-radius: 50%; filter: blur(100px);
+            z-index: -1; animation: pulse 10s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes pulse { from { opacity: 0.2; transform: scale(1); } to { opacity: 0.4; transform: scale(1.2); } }
     </style>
 </head>
-<body class="dark overflow-x-hidden">
+<body class="bg-[#020617] text-slate-100 selection:bg-brand-500 selection:text-white">
 
-    <div class="orb w-96 h-96 bg-blue-500/10 top-0 left-0"></div>
-    <div class="orb w-[500px] h-[500px] bg-purple-500/10 bottom-0 right-0"></div>
+    <!-- Background Decoration -->
+    <div class="orb w-80 h-80 bg-brand-600/20 top-[-10%] left-[-10%]"></div>
+    <div class="orb w-96 h-96 bg-purple-600/10 bottom-[-10%] right-[-10%]"></div>
 
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-slate-900/80 backdrop-blur-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-white">HM<span class="text-blue-500">.</span></a>
-            <div class="hidden md:flex items-center space-x-8 text-sm font-bold text-slate-300">
-                <a href="#about" class="hover:text-blue-400">About</a>
-                <a href="#experience" class="hover:text-blue-400">Experience</a>
-                <a href="#skills" class="hover:text-blue-400">Skills</a>
-                <a href="#projects" class="hover:text-blue-400">Projects</a>
-                <a href="#testimonials" class="hover:text-blue-400">Reviews</a>
-                <a href="#contact" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-lg hover:shadow-blue-500/30">Get in Touch</a>
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-slate-950/80 backdrop-blur-lg">
+        <div class="container mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight">HIMANSHU<span class="text-brand-500">.</span></a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
+                <a href="#impact" class="hover:text-brand-400 transition-colors">Impact</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#reviews" class="hover:text-brand-400 transition-colors">Reviews</a>
+                <a href="#contact" class="px-5 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-all shadow-lg shadow-brand-500/20">Scale Now</a>
             </div>
-            <button id="mobile-btn" class="md:hidden text-white"><i class="fa-solid fa-bars text-xl"></i></button>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-btn" class="md:hidden p-2 text-slate-300" aria-label="Toggle Menu">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="md:hidden bg-slate-900 overflow-hidden h-0 transition-all duration-300 text-center font-bold">
-            <div class="flex flex-col p-6 space-y-4">
-                <a href="#about" class="mobile-link text-slate-200">About</a>
-                <a href="#experience" class="mobile-link text-slate-200">Experience</a>
-                <a href="#skills" class="mobile-link text-slate-200">Skills</a>
-                <a href="#projects" class="mobile-link text-slate-200">Projects</a>
-                <a href="#testimonials" class="mobile-link text-slate-200">Reviews</a>
-            </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-b border-white/5 px-4 py-6 space-y-4 shadow-2xl">
+            <a href="#about" class="block text-lg font-semibold text-slate-200 mobile-link">Strategy</a>
+            <a href="#impact" class="block text-lg font-semibold text-slate-200 mobile-link">Experience</a>
+            <a href="#skills" class="block text-lg font-semibold text-slate-200 mobile-link">Expertise</a>
+            <a href="#reviews" class="block text-lg font-semibold text-slate-200 mobile-link">Reviews</a>
+            <a href="#contact" class="block w-full py-3 bg-brand-600 text-center rounded-xl font-bold mobile-link">Get in Touch</a>
         </div>
     </nav>
 
-    <header id="about" class="min-h-screen flex items-center pt-24 pb-12">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <!-- HERO SECTION -->
+    <header id="about" class="min-h-screen flex items-center pt-20 px-4">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div class="reveal">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                    Available for New Growth Projects
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[10px] font-bold uppercase tracking-widest mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-ping"></span>
+                    Available for Q2 Projects
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white min-h-[160px] md:min-h-[180px]">
-                    Hi, I'm Himanshu.<br>
-                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"></span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+                    I Build Growth <br class="hidden md:block">
+                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400"></span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-lg leading-relaxed">
-                    Growth-focused <strong class="text-white">Digital Marketer</strong> and <strong class="text-white">E-commerce Operator</strong>. I help brands scale through <strong class="text-white">AI Automation</strong>, Marketplace SEO (Amazon, Etsy, eBay), and data-driven performance.
+                <p class="text-base md:text-lg text-slate-400 mb-8 max-w-xl leading-relaxed">
+                    Growth-focused <span class="text-slate-100 font-medium">Digital Marketer</span> and <span class="text-slate-100 font-medium">E-commerce Operator</span>. I specialize in scaling brands through <span class="text-brand-400">AI Automation</span> and Marketplace SEO strategies that actually convert.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="px-8 py-4 bg-white text-slate-900 rounded-full font-bold shadow-xl hover:scale-105 transition-transform">View Work</a>
-                    <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="px-8 py-4 glass-card rounded-full font-bold text-blue-400 border border-blue-500/30">Download CV</a>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#impact" class="px-8 py-4 bg-white text-slate-950 rounded-xl font-bold shadow-xl hover:bg-slate-100 transition-all text-center">View Impact</a>
+                    <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="px-8 py-4 glass rounded-xl font-bold text-slate-200 border border-white/10 hover:border-brand-500/50 transition-all text-center flex items-center justify-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                    </a>
                 </div>
             </div>
-            <div class="reveal delay-200 flex justify-center relative">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
-                    <img src="Photo.png" alt="Himanshu Meghwal" class="relative z-10 w-80 h-80 md:w-96 md:h-96 object-cover rounded-3xl border-4 border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500">
-                </div>
+            
+            <div class="reveal delay-200 relative hidden lg:block">
+                <div class="absolute inset-0 bg-brand-500/20 blur-[100px] rounded-full"></div>
+                <img src="Photo.png" alt="Himanshu Meghwal" class="relative z-10 w-full max-w-md mx-auto rounded-3xl border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             </div>
         </div>
     </header>
 
-    <section class="py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
-        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="reveal">
-                <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">3+</p>
-                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Years Exp.</p>
+    <!-- IMPACT STATS -->
+    <section class="py-12 bg-slate-900/40 border-y border-white/5">
+        <div class="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="reveal text-center">
+                <p class="text-3xl font-bold text-white mb-1">3+</p>
+                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Years Exp</p>
             </div>
-            <div class="reveal delay-100">
-                <p class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-1">100K+</p>
-                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Channel Reach</p>
+            <div class="reveal delay-100 text-center">
+                <p class="text-3xl font-bold text-brand-400 mb-1">100K+</p>
+                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Channel Reach</p>
             </div>
-            <div class="reveal delay-200">
-                <p class="text-3xl md:text-4xl font-extrabold text-purple-400 mb-1">AI-Driven</p>
-                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Workflows</p>
+            <div class="reveal delay-200 text-center">
+                <p class="text-3xl font-bold text-purple-400 mb-1">AI-Ready</p>
+                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Workflow Expert</p>
             </div>
-            <div class="reveal delay-300">
-                <p class="text-3xl md:text-4xl font-extrabold text-green-400 mb-1">E-com</p>
-                <p class="text-sm text-slate-400 uppercase tracking-widest font-bold">Expertise</p>
+            <div class="reveal delay-300 text-center">
+                <p class="text-3xl font-bold text-emerald-400 mb-1">60%</p>
+                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Avg Traffic Lift</p>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-24 bg-black/10">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Journey -->
+    <!-- EXPERIENCE / IMPACT -->
+    <section id="impact" class="py-24 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
                 <div>
-                    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-white"><i data-lucide="briefcase" class="text-blue-500"></i> Experience</h2>
-                    <div class="space-y-8">
-                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-600 reveal">
-                            <span class="float-right text-xs font-bold px-2 py-1 bg-blue-500/20 text-blue-400 rounded">Latest</span>
-                            <h3 class="text-xl font-bold text-white">E-commerce Executive</h3>
-                            <p class="text-blue-400 text-sm font-bold">Pushpa Arts Pvt. Ltd. | Dec 2025 - Present</p>
-                            <ul class="text-slate-300 text-sm mt-3 space-y-2">
-                                <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i> Marketplace SEO across Amazon, Etsy, and eBay.</li>
-                                <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i> Analyzing analytics to identify product growth levers.</li>
-                            </ul>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Impact Report</h2>
+                    <p class="text-slate-500">Building revenue systems, not just running ads.</p>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl reveal">
+                    <div class="flex justify-between mb-6">
+                        <div class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400">
+                            <i data-lucide="trending-up"></i>
                         </div>
-                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-slate-600 reveal delay-100">
-                            <h3 class="text-xl font-bold text-white">Digital Marketing Executive</h3>
-                            <p class="text-slate-400 text-sm font-bold">Pushpa Arts Pvt. Ltd. | Nov 2024 - Present</p>
-                            <p class="text-slate-300 text-sm mt-2">Executed technical SEO and ad campaigns (Google/Meta) to improve search rankings and ROAS.</p>
+                        <span class="text-[10px] font-bold text-brand-400 bg-brand-500/10 px-2 py-1 rounded">Active</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">E-commerce Executive</h3>
+                    <p class="text-sm text-brand-500 font-bold mb-4">Pushpa Arts Pvt. Ltd.</p>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500 shrink-0"></i> Marketplace SEO: Amazon, Etsy, eBay.</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-500 shrink-0"></i> Data Analysis & Growth Modeling.</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl reveal delay-100">
+                    <div class="flex justify-between mb-6">
+                        <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400">
+                            <i data-lucide="zap"></i>
                         </div>
-                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-600 reveal delay-200">
-                            <h3 class="text-xl font-bold text-white">Growth & Publishing Consultant</h3>
-                            <p class="text-purple-400 text-sm font-bold">Freelance | Jan 2023 - Present</p>
-                            <p class="text-slate-300 text-sm mt-2">Amazon KDP strategy, launching sequels, metadata optimization, and AI automation for authors.</p>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Growth Consultant</h3>
+                    <p class="text-sm text-purple-400 font-bold mb-4">Independent</p>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 shrink-0"></i> Amazon KDP Strategy & Scaling.</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-500 shrink-0"></i> AI content pipelines for authors.</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl reveal delay-200">
+                    <div class="flex justify-between mb-6">
+                        <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400">
+                            <i data-lucide="bar-chart-3"></i>
                         </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Digital Marketer</h3>
+                    <p class="text-sm text-emerald-400 font-bold mb-4">Pushpa Arts Pvt. Ltd.</p>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> Technical SEO & ROAS optimization.</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i> Multi-channel ad management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS GRID -->
+    <section id="skills" class="py-24 px-4 bg-slate-900/20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 reveal">Functional Tech Stack</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="shopping-cart" class="text-brand-500 w-5 h-5"></i> E-commerce</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Amazon Central</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Etsy SEO</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">eBay</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">KDP</span>
                     </div>
                 </div>
-
-                <!-- Education & Certs -->
-                <div>
-                    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 reveal text-white"><i data-lucide="graduation-cap" class="text-purple-500"></i> Education</h2>
-                    <div class="space-y-6 mb-12">
-                        <div class="glass-card p-6 rounded-2xl flex gap-4 reveal">
-                            <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-400 shrink-0"><i data-lucide="book-open"></i></div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">MCA</h3>
-                                <p class="text-slate-400 text-sm">Mohanlal Sukhadia University | 2022 - 2024</p>
-                            </div>
-                        </div>
-                        <div class="glass-card p-6 rounded-2xl flex gap-4 reveal delay-100">
-                            <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-400 shrink-0"><i data-lucide="book"></i></div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">B.Sc. Computer Science</h3>
-                                <p class="text-slate-400 text-sm">Mohanlal Sukhadia University | 2019 - 2022</p>
-                            </div>
-                        </div>
+                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="bot" class="text-purple-500 w-5 h-5"></i> AI Ops</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Make.com</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">GPT Prompting</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Automation</span>
                     </div>
-
-                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2 reveal text-white"><i data-lucide="award" class="text-yellow-600"></i> Certifications</h2>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 reveal">
-                        <div class="glass-card p-4 rounded-xl text-center"><i class="fa-brands fa-google text-2xl mb-2 text-slate-400"></i><p class="text-[10px] font-bold">Analytics</p></div>
-                        <div class="glass-card p-4 rounded-xl text-center"><i class="fa-solid fa-bullseye text-2xl mb-2 text-slate-400"></i><p class="text-[10px] font-bold">SEMrush</p></div>
-                        <div class="glass-card p-4 rounded-xl text-center"><i class="fa-brands fa-hubspot text-2xl mb-2 text-slate-400"></i><p class="text-[10px] font-bold">HubSpot</p></div>
-                        <div class="glass-card p-4 rounded-xl text-center"><i class="fa-brands fa-meta text-2xl mb-2 text-slate-400"></i><p class="text-[10px] font-bold">Meta Ads</p></div>
+                </div>
+                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="search" class="text-emerald-500 w-5 h-5"></i> Advanced SEO</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Technical Audits</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Topical Maps</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Ahrefs</span>
+                    </div>
+                </div>
+                <div class="p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="bar-chart" class="text-red-500 w-5 h-5"></i> Ads</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Meta Ads</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Google Ads</span>
+                        <span class="text-xs bg-slate-800 px-3 py-1 rounded-lg">Amazon PPC</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-24">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal text-white">Functional Expertise</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-                <div class="glass-card p-8 rounded-3xl">
-                    <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-6 mx-auto"><i class="fa-solid fa-cart-shopping text-2xl"></i></div>
-                    <h3 class="text-lg font-bold mb-4">E-commerce</h3>
-                    <ul class="text-sm text-slate-400 space-y-2">
-                        <li>Amazon Marketplace</li>
-                        <li>Etsy & eBay SEO</li>
-                        <li>KDP Publishing</li>
-                        <li>Listing Opt.</li>
-                        <li>Website Management</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-purple-400 mb-6 mx-auto"><i class="fa-solid fa-robot text-2xl"></i></div>
-                    <h3 class="text-lg font-bold mb-4">AI Automation</h3>
-                    <ul class="text-sm text-slate-400 space-y-2">
-                        <li>Ai Automate Workflows</li>
-                        <li>Content Automation</li>
-                        <li>Keyword Clustering</li>
-                        <li>Research Logic</li>
-                        <li>Social Media Post Automation</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-green-400 mb-6 mx-auto"><i class="fa-solid fa-magnifying-glass text-2xl"></i></div>
-                    <h3 class="text-lg font-bold mb-4">Advanced SEO</h3>
-                    <ul class="text-sm text-slate-400 space-y-2">
-                        <li>Technical Audits</li>
-                        <li>Topical Mapping</li>
-                        <li>YouTube SEO</li>
-                        <li>Link Building</li>
-                        <li>Amazon Product SEO</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <div class="w-14 h-14 bg-red-500/20 rounded-2xl flex items-center justify-center text-red-400 mb-6 mx-auto"><i class="fa-solid fa-chart-line text-2xl"></i></div>
-                    <h3 class="text-lg font-bold mb-4">Advertising</h3>
-                    <ul class="text-sm text-slate-400 space-y-2">
-                        <li>Meta Ads</li>
-                        <li>Google Ads</li>
-                        <li>Amazon PPC</li>
-                        <li>ROAS Opt.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mt-20 reveal">
-                <h3 class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-10">Tools I Leverage</h3>
-                <div class="flex flex-wrap justify-center gap-10 opacity-60 hover:opacity-100 transition-opacity">
-                    <div class="flex flex-col items-center gap-2"><i class="fa-brands fa-wordpress text-4xl"></i><span class="text-[10px] font-bold">WordPress</span></div>
-                    <div class="flex flex-col items-center gap-2"><i class="fa-brands fa-python text-4xl"></i><span class="text-[10px] font-bold">Python</span></div>
-                    <div class="flex flex-col items-center gap-2"><i class="fa-brands fa-hubspot text-4xl"></i><span class="text-[10px] font-bold">HubSpot</span></div>
-                    <div class="flex flex-col items-center gap-2"><i class="fa-brands fa-amazon text-4xl"></i><span class="text-[10px] font-bold">KDP</span></div>
-                    <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-gears text-4xl"></i><span class="text-[10px] font-bold">Make.com</span></div>
-                    <div class="flex flex-col items-center gap-2"><i class="fa-solid fa-chart-pie text-4xl"></i><span class="text-[10px] font-bold">Analytics</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 bg-black/10">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-16 text-center reveal text-white">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
-                    <div class="h-1 bg-blue-500"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold px-2 py-1 bg-blue-500/20 text-blue-400 rounded">E-commerce</span>
-                            <i data-lucide="shopping-bag" class="w-5 h-5 text-slate-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">Marketplace Expansion</h3>
-                        <p class="text-sm text-slate-400 mb-6">Optimized multi-channel SEO for Amazon and Etsy, driving a significant increase in organic visibility and conversion rates.</p>
-                        <div class="text-green-400 text-xs font-bold flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> Growth Achieved</div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
-                    <div class="h-1 bg-purple-500"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold px-2 py-1 bg-purple-500/20 text-purple-400 rounded">AI Workflow</span>
-                            <i data-lucide="cpu" class="w-5 h-5 text-slate-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors">Automated Content Engine</h3>
-                        <p class="text-sm text-slate-400 mb-6">Built a Make.com system that automates keyword research, clustering, and metadata generation for marketplace listings.</p>
-                        <div class="text-green-400 text-xs font-bold flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> ROI Optimized</div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="glass-card rounded-3xl overflow-hidden group">
-                    <div class="h-1 bg-red-500"></div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-bold px-2 py-1 bg-red-500/20 text-red-400 rounded">SEO Study</span>
-                            <i data-lucide="bar-chart" class="w-5 h-5 text-slate-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 group-hover:text-red-400 transition-colors">60% Organic Growth</h3>
-                        <p class="text-sm text-slate-400 mb-6">Technical SEO audit and content strategy execution resulting in 60% traffic increase over a 6-month period.</p>
-                        <div class="text-green-400 text-xs font-bold flex items-center gap-1"><i data-lucide="check" class="w-3 h-3"></i> Proven Success</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="py-24 bg-black/20">
-        <div class="container mx-auto px-6">
-            <h2 id="feedback-title" class="text-3xl font-bold mb-16 text-center reveal cursor-pointer text-white">Client Feedback</h2>
+    <!-- TESTIMONIALS -->
+    <section id="reviews" class="py-24 px-4">
+        <div class="container mx-auto">
+            <h2 id="feedback-title" class="text-3xl font-bold text-center mb-16 reveal cursor-pointer">Stakeholder Feedback</h2>
             <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-1 glass-card p-8 rounded-3xl reveal">
-                    <h3 class="text-xl font-bold mb-4 text-white">Leave a Review</h3>
+                <div class="glass p-8 rounded-3xl reveal h-fit">
+                    <h3 class="text-xl font-bold mb-4">Leave a Review</h3>
                     <form id="testimonialForm" class="space-y-4">
-                        <input type="text" id="reviewerName" placeholder="Your Name" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
-                        <input type="text" id="reviewerCompany" placeholder="Brand/Role" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
-                        <textarea id="reviewText" rows="3" placeholder="How was your experience?" required class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500"></textarea>
-                        <button type="submit" id="reviewSubmitBtn" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold text-white transition-all">Submit Review</button>
+                        <input type="text" id="reviewerName" placeholder="Full Name" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                        <input type="text" id="reviewerCompany" placeholder="Brand / Position" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm">
+                        <textarea id="reviewText" rows="4" placeholder="How did I help you scale?" required class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-brand-500 outline-none text-sm"></textarea>
+                        <button type="submit" id="reviewSubmitBtn" class="w-full py-4 bg-brand-600 hover:bg-brand-700 rounded-xl font-bold transition-all shadow-lg shadow-brand-500/20">Publish Verification</button>
                     </form>
                 </div>
-                <div class="lg:col-span-2 testimonial-grid" id="testimonialContainer">
-                    <!-- Loaded from Cloud -->
+                <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6" id="testimonialContainer">
+                    <!-- Loaded Dynamically -->
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="glass-card p-12 rounded-3xl reveal text-center border-white/10 shadow-2xl">
-                <h2 class="text-3xl font-bold mb-4 text-white">Let's Work Together</h2>
-                <p class="text-slate-400 mb-8">Have a project in mind? Reach out and let's make it happen.</p>
-                <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <input name="name" placeholder="Full Name" required class="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 w-full text-white focus:border-blue-500 outline-none transition-colors">
-                        <input name="email" type="email" placeholder="Email Address" required class="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 w-full text-white focus:border-blue-500 outline-none transition-colors">
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 px-4 bg-brand-600">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="text-4xl font-bold mb-4">Let's Build Your Machine</h2>
+            <p class="text-brand-100 mb-12">I'm currently taking select projects for Q2. Tell me about your bottleneck.</p>
+            
+            <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="glass p-8 md:p-12 rounded-3xl text-left bg-white/10 border-white/20">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-brand-200">Identity</label>
+                        <input name="name" placeholder="Full Name" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200">
                     </div>
-                    <textarea name="message" placeholder="Project details or inquiry..." rows="4" required class="bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 w-full text-white focus:border-blue-500 outline-none transition-colors"></textarea>
-                    <button type="submit" id="contactSubmitBtn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-bold text-white shadow-lg hover:shadow-blue-500/30 transition-all">Send Message</button>
-                    <p id="successMsg" class="hidden text-green-500 mt-4 font-bold">Message sent! 🚀</p>
-                </form>
-            </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-brand-200">Reach</label>
+                        <input name="email" type="email" placeholder="Email Address" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200">
+                    </div>
+                </div>
+                <div class="space-y-2 mb-8">
+                    <label class="text-xs font-bold uppercase tracking-widest text-brand-200">The Problem</label>
+                    <textarea name="message" placeholder="Describe the project goal..." rows="4" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:bg-white/20 outline-none placeholder:text-brand-200"></textarea>
+                </div>
+                <button type="submit" id="contactSubmitBtn" class="w-full py-5 bg-white text-brand-600 rounded-2xl font-black uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-2xl">Deploy Message</button>
+                <p id="successMsg" class="hidden text-center text-white mt-6 font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="rocket"></i> Mission Logged! Expect contact within 24h.
+                </p>
+            </form>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
-        <div class="flex justify-center gap-6 mb-6">
-            <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
-            <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank" class="hover:text-pink-400 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
-            <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-xl"></i></a>
+    <!-- FOOTER -->
+    <footer class="py-16 text-center text-slate-500 px-4">
+        <div class="flex justify-center gap-8 mb-8">
+            <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank" class="hover:text-brand-400"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+            <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank" class="hover:text-pink-500"><i class="fa-brands fa-instagram text-2xl"></i></a>
+            <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white"><i class="fa-solid fa-envelope text-2xl"></i></a>
         </div>
-        <p>&copy; 2026 Himanshu Meghwal. Based in Udaipur, India.</p>
+        <p class="text-[10px] font-bold uppercase tracking-widest">&copy; 2026 Himanshu Meghwal. Engineered for Growth.</p>
     </footer>
 
-    <!-- Firebase SDKs -->
+    <!-- Firebase Integration -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, query, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        const firebaseConfig = JSON.parse(__firebase_config);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'himanshu-portfolio';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'himanshu-growth-v3';
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
         let currentUser = null;
-        let isAdmin = localStorage.getItem('hm_admin_mode') === 'true';
+        let isAdmin = localStorage.getItem('hm_admin_v3') === 'true';
 
-        // Admin Secret Key
+        // Admin Protocol
         let clicks = 0;
-        document.getElementById('feedback-title').onclick = () => {
+        document.getElementById('feedback-title').addEventListener('click', () => {
             clicks++;
             if (clicks === 3) {
-                const key = prompt("Secret Key:");
-                if (key === "7851828437") { 
-                    localStorage.setItem('hm_admin_mode', 'true');
-                    alert("Admin Enabled.");
+                const key = prompt("Auth Token Required:");
+                if (key === "7851828437") {
+                    localStorage.setItem('hm_admin_v3', 'true');
+                    alert("Admin verified.");
                     location.reload();
                 }
                 clicks = 0;
             }
-        };
-
-        const tContainer = document.getElementById('testimonialContainer');
-        const tForm = document.getElementById('testimonialForm');
-        const submitBtn = document.getElementById('reviewSubmitBtn');
+        });
 
         const initAuth = async () => {
             try {
@@ -372,43 +344,48 @@
                 } else {
                     await signInAnonymously(auth);
                 }
-            } catch (err) { console.error(err); }
+            } catch (err) { console.error("Auth Failure", err); }
         };
 
-        onAuthStateChanged(auth, (u) => {
-            currentUser = u;
-            if (u) {
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            if (user) {
                 const path = ['artifacts', appId, 'public', 'data', 'testimonials'];
                 onSnapshot(query(collection(db, ...path)), (snap) => {
-                    tContainer.innerHTML = '';
-                    snap.docs.forEach(docSnap => {
-                        const d = docSnap.data();
+                    const container = document.getElementById('testimonialContainer');
+                    container.innerHTML = '';
+                    snap.docs.forEach(dSnap => {
+                        const d = dSnap.data();
                         const card = document.createElement('div');
-                        card.className = "glass-card p-6 rounded-2xl reveal active relative";
+                        card.className = "glass p-6 rounded-2xl relative reveal active";
                         card.innerHTML = `
-                            <p class="text-slate-300 italic mb-4">"${d.text}"</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">${d.name.charAt(0).toUpperCase()}</div>
-                                <div><h4 class="text-sm font-bold text-white">${d.name}</h4><p class="text-xs text-slate-500">${d.company}</p></div>
+                            <p class="text-slate-300 italic mb-4 text-sm leading-relaxed">"${d.text}"</p>
+                            <div class="flex items-center gap-3 border-t border-white/5 pt-4">
+                                <div class="w-8 h-8 bg-brand-500/20 rounded-full flex items-center justify-center text-brand-400 font-bold text-xs">${d.name.charAt(0)}</div>
+                                <div><h4 class="text-xs font-bold text-white">${d.name}</h4><p class="text-[10px] text-slate-500">${d.company}</p></div>
                             </div>
-                            ${isAdmin ? `<button class="del-btn absolute top-3 right-3 text-red-500 hover:text-red-700" data-id="${docSnap.id}"><i class="fa-solid fa-trash"></i></button>` : ''}
+                            ${isAdmin ? `<button class="del-btn absolute top-4 right-4 text-red-500 hover:text-red-700 p-2" data-id="${dSnap.id}"><i class="fa-solid fa-trash text-sm"></i></button>` : ''}
                         `;
-                        tContainer.prepend(card);
+                        container.prepend(card);
                     });
+                    
                     document.querySelectorAll('.del-btn').forEach(b => b.onclick = async () => {
-                        if(confirm("Delete review?")) await deleteDoc(doc(db, ...path, b.dataset.id));
+                        if(confirm("Expunge record?")) await deleteDoc(doc(db, ...path, b.dataset.id));
                     });
-                }, e => console.error(e));
+                }, err => console.error("Stream error", err));
             }
         });
 
         initAuth();
 
+        const tForm = document.getElementById('testimonialForm');
         tForm.onsubmit = async (e) => {
             e.preventDefault();
             if (!currentUser) return;
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Saving...";
+            const btn = document.getElementById('reviewSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = "Processing...";
+            
             try {
                 const path = ['artifacts', appId, 'public', 'data', 'testimonials'];
                 await addDoc(collection(db, ...path), {
@@ -418,31 +395,68 @@
                     createdAt: serverTimestamp()
                 });
                 tForm.reset();
-                submitBtn.textContent = "Posted!";
-                setTimeout(() => { submitBtn.textContent = "Submit Review"; submitBtn.disabled = false; }, 2000);
-            } catch (err) { submitBtn.textContent = "Error"; submitBtn.disabled = false; }
+                btn.textContent = "Log Saved";
+                setTimeout(() => { btn.disabled = false; btn.textContent = "Publish Verification"; }, 3000);
+            } catch (err) { 
+                btn.textContent = "Log Failed"; 
+                btn.disabled = false;
+            }
         };
     </script>
 
     <script>
+        // UI Logic
         lucide.createIcons();
+
+        // Reveal animations
         const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), {threshold: 0.1});
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+        // Typewriter - Improved logic
         const tw = document.getElementById('typewriter');
-        const phs = ["Growth Marketer", "E-commerce Operator", "AI Specialist", "SEO Architect"];
+        const phs = ["Growth Marketers", "E-com Engines", "AI Automations", "SEO Architecture"];
         let pi = 0, ci = 0, del = false;
         function type() {
             const cur = phs[pi];
             tw.textContent = del ? cur.substring(0, ci--) : cur.substring(0, ci++);
             if(!del && ci > cur.length) { del = true; setTimeout(type, 2000); }
             else if(del && ci === 0) { del = false; pi = (pi + 1) % phs.length; setTimeout(type, 500); }
-            else setTimeout(type, del ? 50 : 100);
+            else setTimeout(type, del ? 40 : 80);
         }
         type();
 
-        const mb = document.getElementById('mobile-btn'), mm = document.getElementById('mobile-menu');
-        mb.onclick = () => mm.style.height = mm.style.height === '0px' ? `${mm.scrollHeight}px` : '0px';
+        // Mobile Menu - Robust Class Toggle
+        const mb = document.getElementById('mobile-btn');
+        const mm = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mb.onclick = () => {
+            const isOpen = !mm.classList.contains('hidden');
+            mm.classList.toggle('hidden');
+            menuIcon.setAttribute('data-lucide', isOpen ? 'menu' : 'x');
+            lucide.createIcons();
+        };
+
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.onclick = () => {
+                mm.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
+        });
+
+        // Contact Form
+        const cf = document.getElementById('contactForm');
+        cf.onsubmit = () => {
+            const smsg = document.getElementById('successMsg');
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.textContent = "Deploying...";
+            btn.disabled = true;
+            setTimeout(() => {
+                smsg.classList.remove('hidden');
+                btn.textContent = "Deployed";
+            }, 1200);
+        }
     </script>
 </body>
 </html>
