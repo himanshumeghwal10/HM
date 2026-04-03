@@ -1,388 +1,634 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="E4SIuhWKDAboXZpfxCns0707SbeVBvK2_Z5pHEJFyvw" />
-    <title>Himanshu Meghwal | Growth Marketer & E-commerce Expert</title>
-    <meta name="description" content="Growth Marketer and E-commerce Operator specializing in AI Automation, Marketplace SEO, and Revenue Systems.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="E4SIuhWKDAboXZpfxCns0707SbeVBvK2_Z5pHEJFyvw" />
+<title>Himanshu Meghwal — Digital Growth Specialist</title>
+<meta name="description" content="Growth Marketer and E-commerce Operator specializing in AI Automation, Marketplace SEO, and Revenue Systems. Based in Udaipur, Rajasthan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    colors: {
-                        brand: {
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            950: '#020617',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; }
-        
-        .glass-card {
-            backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
+:root {
+  --bg: #06060a;
+  --bg2: #0c0c14;
+  --surface: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.18);
+  --text: #e8e8f0;
+  --muted: #5a5a72;
+  --muted2: #888898;
+  --accent: #ff4d1c;
+  --accent2: #3a6fff;
+  --accent-glow: rgba(255,77,28,0.12);
+  --green: #00e87a;
+}
 
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            transform: translateY(-4px);
-        }
+html { scroll-behavior: smooth; }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-        section { scroll-margin-top: 80px; }
+/* Cursor */
+.cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; top:0; left:0; pointer-events: none; z-index:9999; transform: translate(-50%,-50%); }
+.cursor-ring { width: 32px; height: 32px; border: 1px solid rgba(255,77,28,0.5); border-radius: 50%; position: fixed; top:0; left:0; pointer-events: none; z-index:9998; transform: translate(-50%,-50%); transition: all 0.15s ease; }
 
-        .orb {
-            position: fixed; border-radius: 50%; filter: blur(100px);
-            z-index: -1; pointer-events: none; opacity: 0.4;
-            animation: pulse 12s infinite alternate ease-in-out;
-        }
-        @keyframes pulse { from { transform: scale(1) translate(0,0); } to { transform: scale(1.2) translate(20px, -20px); } }
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.018; pointer-events: none;
+}
 
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
-    </style>
+/* Gradient orbs */
+.orb1 { position: fixed; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,77,28,0.08) 0%, transparent 70%); top: -200px; right: -200px; pointer-events: none; z-index: 0; animation: orbFloat 18s infinite alternate ease-in-out; }
+.orb2 { position: fixed; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(58,111,255,0.06) 0%, transparent 70%); bottom: -150px; left: -150px; pointer-events: none; z-index: 0; animation: orbFloat2 22s infinite alternate ease-in-out; }
+@keyframes orbFloat { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,-40px) scale(1.15); } }
+@keyframes orbFloat2 { from { transform: translate(0,0); } to { transform: translate(-20px,30px) scale(1.1); } }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6,6,10,0.8);
+  backdrop-filter: blur(20px);
+  transition: box-shadow 0.3s;
+}
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text); }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--accent) !important; color: white !important; padding: 10px 22px; border-radius: 6px; }
+.nav-cta:hover { opacity: 0.85; color: white !important; }
+
+#mobile-btn { display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 4px; font-size: 1.1rem; }
+#mobile-menu {
+  display: none; position: fixed; top: 72px; left: 0; right: 0;
+  background: var(--bg2); border-bottom: 1px solid var(--border);
+  padding: 32px 40px; z-index: 99; flex-direction: column; gap: 24px;
+}
+#mobile-menu.open { display: flex; }
+#mobile-menu a { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; transition: color 0.2s; }
+#mobile-menu a:hover { color: var(--accent); }
+#mobile-menu .mob-cta { display: block; text-align: center; background: var(--accent); color: white !important; padding: 16px; border-radius: 8px; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 60px 60px; position: relative; z-index: 1; }
+.hero-inner { max-width: 1240px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 4px;
+  border: 1px solid rgba(0,232,122,0.25); background: rgba(0,232,122,0.06);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 32px;
+  animation: fadeUp 0.7s ease both;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(3rem, 5.5vw, 5.8rem);
+  line-height: 1.0; letter-spacing: -0.04em;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+.typewriter-wrap {
+  display: block;
+  background: linear-gradient(90deg, var(--accent), #ff8c55, var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  min-height: 1.05em;
+}
+#typewriter::after { content: '|'; -webkit-text-fill-color: var(--accent); animation: blink 1s infinite; }
+
+.hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--muted2); font-weight: 300; max-width: 500px; margin-top: 28px; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-desc strong { color: var(--text); font-weight: 600; }
+
+.hero-btns { display: flex; gap: 14px; margin-top: 44px; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+.btn-solid { display: inline-flex; align-items: center; gap: 8px; background: var(--text); color: var(--bg); padding: 15px 30px; border-radius: 6px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+.btn-solid:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); padding: 14px 28px; border-radius: 6px; border: 1px solid var(--border-hover); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); animation: fadeUp 0.7s 0.4s ease both; }
+.stat-val { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.05em; color: var(--text); }
+.stat-val b { color: var(--accent); }
+.stat-key { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 4px; }
+
+/* Photo card */
+.photo-card { position: relative; z-index: 1; animation: fadeUp 0.7s 0.25s ease both; }
+.photo-badge { position: absolute; top: -14px; right: -14px; z-index: 3; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 14px; border-radius: 4px; box-shadow: 0 8px 24px rgba(255,77,28,0.4); }
+.photo-frame { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 0 0 1px var(--border), 0 40px 80px rgba(0,0,0,0.5); transform: rotate(1.5deg); transition: transform 0.6s ease; }
+.photo-frame:hover { transform: rotate(0deg); }
+.photo-frame img { display: block; width: 100%; filter: grayscale(0.4) contrast(1.1); transition: filter 0.5s; }
+.photo-frame:hover img { filter: grayscale(0) contrast(1); }
+.photo-frame::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, transparent 50%, rgba(6,6,10,0.7) 100%); }
+.photo-label { position: absolute; bottom: 20px; left: 20px; z-index: 2; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+/* STATS BAR */
+.stats-bar { position: relative; z-index: 1; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); padding: 40px 60px; }
+.stats-bar-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
+.sbar-item { padding: 16px 0; position: relative; }
+.sbar-item:not(:last-child)::after { content: ''; position: absolute; top: 20%; right: 0; bottom: 20%; width: 1px; background: var(--border); }
+.sbar-num { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.05em; }
+.c1 { color: var(--text); } .c2 { color: var(--accent); } .c3 { color: var(--accent2); } .c4 { color: var(--green); }
+.sbar-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-top: 6px; }
+
+/* SECTION BASE */
+section { position: relative; z-index: 1; }
+.container { max-width: 1240px; margin: 0 auto; }
+.sec-wrap { padding: 100px 60px; }
+.sec-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.sec-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; }
+.sec-sub { font-size: 1rem; color: var(--muted2); line-height: 1.75; max-width: 540px; margin-top: 14px; font-weight: 300; }
+
+/* ABOUT */
+#about { background: var(--bg2); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
+.about-body p { font-size: 1rem; line-height: 1.9; color: var(--muted2); font-weight: 300; margin-bottom: 20px; }
+.about-body p strong { color: var(--text); font-weight: 600; }
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 28px; }
+.tool-chip { padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; font-size: 0.75rem; font-weight: 600; color: var(--muted2); text-align: center; transition: all 0.2s; }
+.tool-chip:hover { border-color: var(--accent); color: var(--text); background: var(--accent-glow); }
+
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 60px; }
+.svc-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 32px; transition: all 0.3s; position: relative; overflow: hidden; }
+.svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.svc-card:hover { border-color: rgba(255,77,28,0.3); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-icon { font-size: 1.6rem; margin-bottom: 20px; display: block; }
+.svc-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; margin-bottom: 10px; }
+.svc-card p { font-size: 0.86rem; color: var(--muted2); line-height: 1.7; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.svc-tag { font-size: 0.68rem; font-weight: 700; padding: 4px 10px; background: rgba(255,255,255,0.04); border-radius: 4px; color: var(--muted); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* RESULTS */
+#results { background: var(--bg2); }
+.results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
+.res-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 36px 24px; text-align: center; transition: all 0.3s; }
+.res-card:hover { transform: translateY(-6px); border-color: var(--border-hover); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.res-num { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.05em; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.res-label { font-size: 0.8rem; color: var(--muted2); margin-top: 10px; line-height: 1.5; }
+
+/* EXPERIENCE */
+.exp-timeline { margin-top: 60px; }
+.exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 60px; padding: 40px 0; border-top: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: 1px solid var(--border); }
+.exp-meta { padding-top: 4px; }
+.exp-period { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.exp-company { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-top: 6px; letter-spacing: 0.04em; }
+.exp-badge { display: inline-block; margin-top: 12px; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 3px; background: rgba(0,232,122,0.1); border: 1px solid rgba(0,232,122,0.25); color: var(--green); }
+.exp-content h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+.exp-content p { font-size: 0.9rem; color: var(--muted2); line-height: 1.75; margin-bottom: 18px; font-weight: 300; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.exp-bullets li { font-size: 0.88rem; color: var(--text); line-height: 1.65; padding-left: 22px; position: relative; }
+.exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* EDUCATION */
+.edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 60px; }
+.edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 40px; transition: all 0.3s; }
+.edu-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.edu-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(255,77,28,0.1); border: 1px solid rgba(255,77,28,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 24px; }
+.edu-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
+.edu-card .uni { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 12px; }
+.edu-card .year { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+/* STACK */
+#stack { background: var(--bg2); }
+.stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
+.stack-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: all 0.3s; }
+.stack-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+.stack-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 18px; }
+.stack-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-chip { font-size: 0.68rem; font-weight: 700; padding: 5px 10px; background: rgba(255,255,255,0.04); border-radius: 4px; color: var(--muted2); border: 1px solid var(--border); }
+
+/* CERTS */
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
+.cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 24px; text-align: center; transition: all 0.3s; }
+.cert-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(255,77,28,0.1); }
+.cert-card i { font-size: 2rem; color: var(--muted); margin-bottom: 16px; display: block; transition: color 0.3s; }
+.cert-card:hover i { color: var(--accent); }
+.cert-card h4 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* WHY ME */
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 60px; }
+.why-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 36px; position: relative; overflow: hidden; transition: all 0.3s; }
+.why-card:hover { border-color: rgba(255,77,28,0.35); background: rgba(255,77,28,0.03); }
+.why-num { font-family: 'Syne', sans-serif; font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.03); position: absolute; top: 12px; right: 24px; line-height: 1; letter-spacing: -0.05em; user-select: none; }
+.why-card h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
+.why-card p { font-size: 0.88rem; line-height: 1.75; color: var(--muted2); font-weight: 300; }
+
+/* CONTACT */
+#contact { background: var(--bg2); }
+.contact-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
+.contact-left h3 { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+.contact-left p { font-size: 0.95rem; color: var(--muted2); line-height: 1.75; font-weight: 300; margin-bottom: 36px; }
+.clink { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+.clink:hover { border-color: var(--accent); transform: translateX(6px); }
+.clink-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,77,28,0.08); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.clink-lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; }
+.clink-val { font-size: 0.88rem; font-weight: 500; margin-top: 1px; }
+
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.fg label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 8px; }
+.fg input, .fg textarea, .fg select { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s; resize: none; }
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--accent); background: rgba(255,77,28,0.04); }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--muted); }
+.fg select option { background: var(--bg2); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.btn-submit { width: 100%; padding: 16px; border-radius: 8px; background: var(--accent); color: white; border: none; cursor: pointer; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.25s; box-shadow: 0 8px 30px rgba(255,77,28,0.3); margin-top: 8px; }
+.btn-submit:hover { background: #e03d0a; transform: translateY(-2px); box-shadow: 0 14px 40px rgba(255,77,28,0.4); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+#successMsg { display: none; text-align: center; color: var(--green); font-weight: 700; font-size: 0.9rem; margin-top: 16px; padding: 14px; background: rgba(0,232,122,0.08); border: 1px solid rgba(0,232,122,0.2); border-radius: 8px; }
+
+/* FOOTER */
+footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px solid var(--border); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; }
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { color: var(--muted); font-size: 1.1rem; transition: color 0.2s; text-decoration: none; }
+.footer-social a:hover { color: var(--accent); }
+.footer-copy { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+@keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+  #mobile-btn { display: block; }
+  .hero { padding: 90px 28px 60px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .photo-card { display: none; }
+  .sec-wrap { padding: 70px 28px; }
+  .stats-bar { padding: 32px 28px; }
+  .stats-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .sbar-item::after { display: none; }
+  .about-grid, .contact-split { grid-template-columns: 1fr; gap: 40px; }
+  .services-grid, .results-grid, .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  .edu-grid, .why-grid { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 20px; padding: 36px 28px; text-align: center; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+@media (max-width: 600px) {
+  .services-grid, .results-grid, .certs-grid, .stack-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
-<body class="selection:bg-brand-500 selection:text-white overflow-x-hidden">
+<body>
 
-    <div class="orb w-96 h-96 bg-brand-600/10 -top-20 -left-20"></div>
-    <div class="orb w-[500px] h-[500px] bg-purple-600/5 -bottom-20 -right-20"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="orb1"></div>
+<div class="orb2"></div>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-brand-950/80 backdrop-blur-xl">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-xl font-extrabold tracking-tighter">HIMANSHU<span class="text-brand-500">.</span></a>
-            
-            <div class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#education" class="hover:text-white transition-colors">Education</a>
-                <a href="#stack" class="hover:text-white transition-colors">Stack</a>
-                <a href="#certs" class="hover:text-white transition-colors">Certs</a>
-                <a href="#contact" class="px-5 py-2 bg-brand-600 text-white rounded hover:bg-brand-700 transition-all">Collaborate</a>
-            </div>
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">HIMANSHU<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact" class="nav-cta">Collaborate</a></li>
+  </ul>
+  <button id="mobile-btn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</nav>
 
-            <button id="mobile-btn" class="md:hidden text-slate-300">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
+<div id="mobile-menu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#stack" class="mobile-link">Stack</a>
+  <a href="#contact" class="mobile-link mob-cta">Collaborate</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">System Status: Operational</div>
+      <h1>
+        I Engineer<br>
+        <span class="typewriter-wrap"><span id="typewriter"></span></span>
+      </h1>
+      <p class="hero-desc">
+        <strong>Growth Marketer &amp; E-commerce Operator</strong> from Udaipur. I build self-scaling revenue engines at the intersection of <strong>AI Automation</strong> and Marketplace SEO for brands that want to grow — not just rank.
+      </p>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-solid">View Impact</a>
+        <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="btn-ghost">
+          <i class="fa-solid fa-file-lines"></i> Technical CV
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-val">3<b>+</b></div><div class="stat-key">Years of Ops</div></div>
+        <div><div class="stat-val">100<b>K</b></div><div class="stat-key">Channel Reach</div></div>
+        <div><div class="stat-val">5<b>+</b></div><div class="stat-key">Platforms</div></div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-badge">Open to Work</div>
+      <div class="photo-frame">
+        <img src="Photo.png" alt="Himanshu Meghwal">
+        <div class="photo-label">Himanshu Meghwal — Udaipur, IN</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-bar-inner container">
+    <div class="sbar-item reveal"><div class="sbar-num c1">3+</div><div class="sbar-label">Years of Ops</div></div>
+    <div class="sbar-item reveal delay-1"><div class="sbar-num c2">100K+</div><div class="sbar-label">Channel Reach</div></div>
+    <div class="sbar-item reveal delay-2"><div class="sbar-num c3">AI-First</div><div class="sbar-label">Workflows Built</div></div>
+    <div class="sbar-item reveal delay-3"><div class="sbar-num c4">↑60%</div><div class="sbar-label">Traffic Velocity</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">About Me</div>
+      <div class="sec-title reveal">Growth-focused.<br>Data-driven. AI-augmented.</div>
+      <div class="about-grid reveal">
+        <div class="about-body">
+          <p>I'm a <strong>Digital Marketing Specialist</strong> based in Udaipur, Rajasthan, with 3+ years of hands-on experience converting organic visibility into measurable business growth across global platforms.</p>
+          <p>My work spans <strong>SEO strategy, e-commerce marketplace optimization</strong> (Amazon, Etsy, eBay), YouTube channel growth, and building <strong>AI-powered automation workflows</strong> that scale output without scaling headcount.</p>
+          <p>I've grown a YouTube channel to <strong>100K+ subscribers</strong>, optimized product listings across top marketplaces, managed Amazon KDP publishing strategies for authors, and built data-driven systems for NGOs and e-commerce brands. My MCA background means every strategy is grounded in analytics — not intuition alone.</p>
         </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-950 border-b border-white/5 px-6 py-8 space-y-6">
-            <a href="#experience" class="block text-xl font-bold mobile-link">Experience</a>
-            <a href="#education" class="block text-xl font-bold mobile-link">Education</a>
-            <a href="#stack" class="block text-xl font-bold mobile-link">Tech Stack</a>
-            <a href="#certs" class="block text-xl font-bold mobile-link">Certifications</a>
-            <a href="#contact" class="block w-full py-4 bg-brand-600 text-center rounded-xl font-black mobile-link">Contact</a>
+        <div>
+          <div class="sec-label" style="margin-bottom:16px;">Tools &amp; Platforms</div>
+          <div class="tools-grid">
+            <div class="tool-chip">Ahrefs</div><div class="tool-chip">SEMrush</div><div class="tool-chip">GSC</div>
+            <div class="tool-chip">WordPress</div><div class="tool-chip">Screaming Frog</div><div class="tool-chip">Make.com</div>
+            <div class="tool-chip">Canva</div><div class="tool-chip">GA4</div><div class="tool-chip">Ubersuggest</div>
+            <div class="tool-chip">Amazon Ads</div><div class="tool-chip">Meta Ads</div><div class="tool-chip">HubSpot</div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <header class="min-h-screen flex items-center pt-20 px-6">
-        <div class="container mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="reveal">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[10px] font-black uppercase tracking-[0.2em] mb-8">
-                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
-                    System Status: Operational
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.05] mb-8 tracking-tight">
-                    I Engineer <br>
-                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-blue-500 to-purple-500"></span>
-                </h1>
-                <p class="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
-                    High-level <span class="text-white font-semibold">Growth Marketer</span>. I specialize in the intersection of <span class="text-white">AI Automation</span> and Marketplace SEO to build self-scaling revenue engines for global E-commerce brands.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="#experience" class="px-10 py-5 bg-white text-brand-950 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-slate-200 transition-all text-center">View Impact</a>
-                    <a href="Himanshu Meghwal Resume 2026.pdf" target="_blank" class="px-10 py-5 glass-card rounded-lg font-black uppercase tracking-widest text-xs text-white border border-white/10 text-center flex items-center justify-center gap-2">
-                        <i data-lucide="file-text" class="w-4 h-4"></i> Technical CV
-                    </a>
-                </div>
-            </div>
-            
-            <div class="reveal delay-200 relative hidden lg:block">
-                <div class="absolute inset-0 bg-brand-500/20 blur-[120px] rounded-full"></div>
-                <div class="relative z-10 p-4 glass-card rounded-[40px] rotate-2 hover:rotate-0 duration-700">
-                    <img src="Photo.png" alt="Himanshu Meghwal" class="rounded-[30px] w-full grayscale contrast-125 hover:grayscale-0 transition-all duration-700 shadow-2xl">
-                </div>
-            </div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">What I Do</div>
+      <div class="sec-title reveal">Services That Drive<br>Real Growth</div>
+      <p class="sec-sub reveal">From ranking on Google to dominating Amazon search — I cover the full digital growth spectrum.</p>
+      <div class="services-grid reveal">
+        <div class="svc-card"><span class="svc-icon">🔍</span><h3>SEO Strategy</h3><p>On-page, off-page, and technical SEO built for long-term authority. Keyword clustering, topical mapping, and content systems that compound over time.</p><div class="svc-tags"><span class="svc-tag">On-Page</span><span class="svc-tag">Technical</span><span class="svc-tag">Link Building</span></div></div>
+        <div class="svc-card"><span class="svc-icon">🛒</span><h3>Marketplace SEO</h3><p>Product listing optimization for Amazon, Etsy, and eBay. Better discoverability, higher CTR, and improved conversions through proven marketplace techniques.</p><div class="svc-tags"><span class="svc-tag">Amazon</span><span class="svc-tag">Etsy</span><span class="svc-tag">eBay</span></div></div>
+        <div class="svc-card"><span class="svc-icon">📊</span><h3>Amazon Advertising</h3><p>PPC campaign setup, optimization, and scaling. Improved ROAS through targeted keyword bidding, negative keyword pruning, and strategic campaign restructuring.</p><div class="svc-tags"><span class="svc-tag">Amazon PPC</span><span class="svc-tag">ROAS</span><span class="svc-tag">Campaign Audit</span></div></div>
+        <div class="svc-card"><span class="svc-icon">🤖</span><h3>AI Workflow Automation</h3><p>AI-powered systems using Make.com and LLM tools for content generation, keyword clustering, metadata optimization, and publishing at velocity.</p><div class="svc-tags"><span class="svc-tag">Make.com</span><span class="svc-tag">AI Content</span><span class="svc-tag">Automation</span></div></div>
+        <div class="svc-card"><span class="svc-icon">▶️</span><h3>YouTube SEO &amp; Growth</h3><p>Channel growth strategy from scratch to 100K+. Titles, thumbnails, description SEO, and audience retention analysis for sustainable, compounding growth.</p><div class="svc-tags"><span class="svc-tag">YouTube SEO</span><span class="svc-tag">Channel Growth</span><span class="svc-tag">Thumbnails</span></div></div>
+        <div class="svc-card"><span class="svc-icon">📖</span><h3>Amazon KDP Publishing</h3><p>Full-service KDP strategy: metadata optimization, keyword research for book categories, ad campaigns, and launch pricing sequences for authors and publishers.</p><div class="svc-tags"><span class="svc-tag">KDP SEO</span><span class="svc-tag">Book Launch</span><span class="svc-tag">Ad Campaigns</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Key Achievements</div>
+      <div class="sec-title reveal">Numbers That<br>Speak for Themselves</div>
+      <div class="results-grid reveal">
+        <div class="res-card"><div class="res-num">100K+</div><div class="res-label">YouTube subscribers grown through SEO &amp; content strategy</div></div>
+        <div class="res-card"><div class="res-num">3+</div><div class="res-label">Years of proven digital marketing execution across industries</div></div>
+        <div class="res-card"><div class="res-num">5+</div><div class="res-label">Platforms mastered: Amazon, Etsy, eBay, YouTube, Google</div></div>
+        <div class="res-card"><div class="res-num">↑ROI</div><div class="res-label">Improved marketplace ROAS through targeted Amazon PPC campaigns</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Chronology</div>
+      <div class="sec-title reveal">Professional Impact</div>
+      <div class="exp-timeline reveal">
+        <div class="exp-item">
+          <div class="exp-meta"><div class="exp-period">Dec 2025 — Present</div><div class="exp-company">Pushpa Arts Pvt. Ltd.</div><div class="exp-badge">Current Focus</div></div>
+          <div class="exp-content"><h3>E-commerce Executive</h3><p>Leading marketplace dominance strategy across Amazon, Etsy, and eBay — driving discoverability, conversion, and multi-channel revenue growth.</p><ul class="exp-bullets"><li>Marketplace dominance: Amazon, Etsy, &amp; eBay SEO strategy</li><li>Growth modeling: identifying and activating multi-channel revenue levers</li><li>Pricing strategy and competitor analysis to capture market share</li></ul></div>
         </div>
-    </header>
-
-    <!-- STATS -->
-    <section class="py-20 border-y border-white/5 bg-white/[0.02]">
-        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-            <div class="reveal">
-                <p class="text-4xl font-extrabold text-white mb-2">3+</p>
-                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Years of Ops</p>
-            </div>
-            <div class="reveal delay-100">
-                <p class="text-4xl font-extrabold text-brand-500 mb-2">100K+</p>
-                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Channel Reach</p>
-            </div>
-            <div class="reveal delay-200">
-                <p class="text-4xl font-extrabold text-purple-500 mb-2">AI</p>
-                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">First Workflows</p>
-            </div>
-            <div class="reveal delay-300">
-                <p class="text-4xl font-extrabold text-emerald-500 mb-2">60%</p>
-                <p class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Traffic Velocity</p>
-            </div>
+        <div class="exp-item">
+          <div class="exp-meta"><div class="exp-period">Nov 2024 — Dec 2025</div><div class="exp-company">Pushpa Arts Pvt. Ltd.</div></div>
+          <div class="exp-content"><h3>Digital Marketing Executive</h3><p>Architected technical SEO frameworks and executed data-driven ad campaigns, focused on ROAS maximization and organic search authority.</p><ul class="exp-bullets"><li>Led SEO strategy: keyword rankings, organic traffic, site visibility</li><li>Optimized product listings across Amazon, Etsy, and eBay</li><li>Executed Amazon Ads campaigns to improve ROAS and sales performance</li></ul></div>
         </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="py-32 px-6">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-4 reveal">Chronology</h2>
-            <h2 class="text-4xl font-extrabold mb-16 reveal">Professional Impact</h2>
-            
-            <div class="space-y-12">
-                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-brand-600">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                        <div>
-                            <span class="text-[10px] font-black uppercase tracking-widest text-brand-500 mb-2 block">Current Focus</span>
-                            <h3 class="text-2xl font-extrabold">E-commerce Executive</h3>
-                            <p class="text-slate-400 font-bold mt-1">Pushpa Arts Pvt. Ltd.</p>
-                        </div>
-                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">DEC 2025 — PRESENT</p>
-                    </div>
-                    <ul class="grid md:grid-cols-2 gap-6 text-slate-400 text-sm">
-                        <li class="flex gap-3"><i data-lucide="terminal" class="w-5 h-5 text-brand-500 shrink-0"></i> Marketplace Dominance: Amazon, Etsy, & eBay SEO.</li>
-                        <li class="flex gap-3"><i data-lucide="terminal" class="w-5 h-5 text-brand-500 shrink-0"></i> Growth Modeling: Identifying multi-channel revenue levers.</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-slate-800 opacity-80">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                        <div>
-                            <h3 class="text-2xl font-extrabold">Digital Marketing Executive</h3>
-                            <p class="text-slate-400 font-bold mt-1">Pushpa Arts Pvt. Ltd.</p>
-                        </div>
-                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">NOV 2024 — DEC 2025</p>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
-                        Architecting technical SEO frameworks and executing data-driven ad campaigns across Google and Meta. Focused on ROAS maximization and organic search authority.
-                    </p>
-                </div>
-
-                <div class="glass-card p-10 rounded-3xl reveal border-l-4 border-l-purple-600">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                        <div>
-                            <h3 class="text-2xl font-extrabold">Growth Consultant</h3>
-                            <p class="text-purple-400 font-bold mt-1">Independent / Freelance</p>
-                        </div>
-                        <p class="text-[10px] font-black text-slate-500 bg-white/5 px-4 py-2 rounded-full">JAN 2023 — PRESENT</p>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
-                        Deploying AI-driven automation for Amazon KDP publishers. Launching sequences, metadata optimization, and content velocity systems globally.
-                    </p>
-                </div>
-            </div>
+        <div class="exp-item">
+          <div class="exp-meta"><div class="exp-period">Jan 2025 — Present</div><div class="exp-company">Freelance</div></div>
+          <div class="exp-content"><h3>Growth &amp; Publishing Consultant</h3><p>Deploying AI-driven automation for Amazon KDP publishers — launch sequences, metadata optimization, and content velocity systems globally.</p><ul class="exp-bullets"><li>Managed KDP publishing SEO strategies for multiple authors</li><li>Improved book discoverability through metadata and keyword targeting</li><li>Built AI workflows for content generation, clustering, and automation</li></ul></div>
         </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="py-32 px-6 bg-brand-950/40">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-16 text-center reveal">Academic Foundation</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-card p-10 rounded-3xl reveal">
-                    <div class="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400 mb-8">
-                        <i data-lucide="graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-2 text-white">Master of Computer Applications</h3>
-                    <p class="text-brand-500 font-bold mb-4">Mohanlal Sukhadia University</p>
-                    <p class="text-[10px] font-black text-slate-500 tracking-widest">2022 — 2024</p>
-                </div>
-                <div class="glass-card p-10 rounded-3xl reveal delay-100">
-                    <div class="w-12 h-12 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-400 mb-8">
-                        <i data-lucide="code"></i>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-2 text-white">B.Sc. Computer Science</h3>
-                    <p class="text-brand-500 font-bold mb-4">Mohanlal Sukhadia University</p>
-                    <p class="text-[10px] font-black text-slate-500 tracking-widest">2019 — 2022</p>
-                </div>
-            </div>
+        <div class="exp-item">
+          <div class="exp-meta"><div class="exp-period">Jan 2023 — Jun 2024</div><div class="exp-company">Freelance</div></div>
+          <div class="exp-content"><h3>SEO &amp; Social Media Manager</h3><p>Freelance digital marketing spanning YouTube growth consulting and NGO website SEO — building organic audiences from the ground up.</p><ul class="exp-bullets"><li>Grew YouTube channel to 100K+ subscribers through content optimization</li><li>Managed SEO for NGO websites, improving content structure and targeting</li><li>Developed audience-focused content strategies to improve engagement</li></ul></div>
         </div>
-    </section>
-
-    <!-- TECH STACK & TOOLS -->
-    <section id="stack" class="py-32 px-6">
-        <div class="container mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-                <h2 class="text-4xl font-extrabold mb-6">Technical Infrastructure</h2>
-                <p class="text-slate-500">I leverage a high-frequency stack to bypass manual bottlenecks.</p>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-32 reveal">
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="font-black text-xs uppercase tracking-widest text-brand-500 mb-6">Marketplaces</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Amazon Seller</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Etsy SEO</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">KDP Scaling</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">eBay Ads</span>
-                    </div>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="font-black text-xs uppercase tracking-widest text-purple-500 mb-6">Automation</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Make.com</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Python Scripts</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GPT Forge</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Data Mining</span>
-                    </div>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="font-black text-xs uppercase tracking-widest text-emerald-500 mb-6">Growth SEO</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Topical Mapping</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Ahrefs</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">ScreamingFrog</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GSC Audits</span>
-                    </div>
-                </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <h3 class="font-black text-xs uppercase tracking-widest text-red-500 mb-6">Marketing Ops</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">HubSpot CRM</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">GA4 Analytics</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">WordPress</span>
-                        <span class="px-3 py-1 bg-white/5 rounded text-[10px] font-bold">Meta Ads</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-12 opacity-30 hover:opacity-100 transition-opacity duration-500 reveal">
-                <i class="fa-brands fa-wordpress text-5xl"></i>
-                <i class="fa-brands fa-python text-5xl"></i>
-                <i class="fa-brands fa-hubspot text-5xl"></i>
-                <i class="fa-brands fa-amazon text-5xl"></i>
-                <i class="fa-solid fa-gears text-5xl"></i>
-            </div>
+        <div class="exp-item">
+          <div class="exp-meta"><div class="exp-period">Jun — Oct 2024</div><div class="exp-company">Pushpa Arts Pvt. Ltd.</div></div>
+          <div class="exp-content"><h3>Digital Marketing Intern</h3><p>Hands-on internship in SEO campaigns, social media management, and performance analytics reporting.</p><ul class="exp-bullets"><li>Supported SEO campaigns: on-page optimization and backlink outreach</li><li>Managed social media content calendars and engagement strategies</li><li>Assisted in performance tracking and analytics reporting</li></ul></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certs" class="py-32 px-6 bg-brand-950/30">
-        <div class="container mx-auto max-w-5xl">
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-brand-500 mb-16 text-center reveal">Verifications</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <i class="fa-brands fa-google text-3xl text-slate-500 mb-4 block"></i>
-                    <h4 class="text-[10px] font-black uppercase">GA4 Expert</h4>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <i class="fa-solid fa-bullseye text-3xl text-slate-500 mb-4 block"></i>
-                    <h4 class="text-[10px] font-black uppercase">SEMrush SEO</h4>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <i class="fa-brands fa-hubspot text-3xl text-slate-500 mb-4 block"></i>
-                    <h4 class="text-[10px] font-black uppercase">HubSpot Inbound</h4>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center">
-                    <i class="fa-brands fa-meta text-3xl text-slate-500 mb-4 block"></i>
-                    <h4 class="text-[10px] font-black uppercase">Meta Ad Specialist</h4>
-                </div>
-            </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Academic Foundation</div>
+      <div class="sec-title reveal">Education</div>
+      <div class="edu-grid reveal">
+        <div class="edu-card"><div class="edu-icon">🎓</div><h3>Master of Computer Applications</h3><div class="uni">Mohanlal Sukhadia University</div><div class="year">2022 — 2024</div></div>
+        <div class="edu-card"><div class="edu-icon">💻</div><h3>B.Sc. Computer Science</h3><div class="uni">Mohanlal Sukhadia University</div><div class="year">2019 — 2022</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Technical Infrastructure</div>
+      <div class="sec-title reveal">My Toolkit</div>
+      <p class="sec-sub reveal">A high-frequency stack to bypass manual bottlenecks and scale what works.</p>
+      <div class="stack-grid reveal">
+        <div class="stack-card"><div class="stack-label c2">Marketplaces</div><div class="stack-chips"><span class="stack-chip">Amazon Seller</span><span class="stack-chip">Etsy SEO</span><span class="stack-chip">KDP Scaling</span><span class="stack-chip">eBay Ads</span></div></div>
+        <div class="stack-card"><div class="stack-label" style="color:#a855f7;">Automation</div><div class="stack-chips"><span class="stack-chip">Make.com</span><span class="stack-chip">AI Workflows</span><span class="stack-chip">GPT Systems</span><span class="stack-chip">Data Mining</span></div></div>
+        <div class="stack-card"><div class="stack-label c4">Growth SEO</div><div class="stack-chips"><span class="stack-chip">Topical Mapping</span><span class="stack-chip">Ahrefs</span><span class="stack-chip">ScreamingFrog</span><span class="stack-chip">GSC Audits</span></div></div>
+        <div class="stack-card"><div class="stack-label" style="color:#f59e0b;">Marketing Ops</div><div class="stack-chips"><span class="stack-chip">HubSpot CRM</span><span class="stack-chip">GA4</span><span class="stack-chip">WordPress</span><span class="stack-chip">Meta Ads</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal" style="text-align:center;">Verifications</div>
+      <div class="sec-title reveal" style="text-align:center;">Certifications</div>
+      <div class="certs-grid reveal">
+        <div class="cert-card"><i class="fa-brands fa-google"></i><h4>GA4 Expert</h4></div>
+        <div class="cert-card"><i class="fa-solid fa-bullseye"></i><h4>SEMrush SEO</h4></div>
+        <div class="cert-card"><i class="fa-brands fa-hubspot"></i><h4>HubSpot Inbound</h4></div>
+        <div class="cert-card"><i class="fa-brands fa-meta"></i><h4>Meta Ad Specialist</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section id="why">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Why Work With Me</div>
+      <div class="sec-title reveal">What Sets Me Apart</div>
+      <div class="why-grid reveal">
+        <div class="why-card"><div class="why-num">01</div><h3>Data Over Guesswork</h3><p>Every strategy is rooted in real data — keyword volumes, competitor gaps, conversion funnels. No fluff. No vanity metrics. Just measurable outcomes that matter to your bottom line.</p></div>
+        <div class="why-card"><div class="why-num">02</div><h3>Full-Funnel Thinking</h3><p>I don't just drive traffic — I think about what happens after the click. From listing copy to landing page flow, I optimize the entire journey for conversion, not just reach.</p></div>
+        <div class="why-card"><div class="why-num">03</div><h3>AI-Augmented Execution</h3><p>I use AI and automation to work smarter and faster. My clients get the output of a full team at the cost and trust of one dedicated specialist with the systems to back it up.</p></div>
+        <div class="why-card"><div class="why-num">04</div><h3>Multi-Platform Expertise</h3><p>From Google to Amazon to YouTube — I understand how different platforms rank, reward, and convert. One expert managing your entire digital growth presence, coherently.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-wrap">
+    <div class="container">
+      <div class="sec-label reveal">Let's Work Together</div>
+      <div class="sec-title reveal">Deploy Your Next<br>Growth Engine</div>
+      <div class="contact-split reveal">
+        <div class="contact-left">
+          <h3>Currently screening high-impact projects.</h3>
+          <p>If you have a growth bottleneck — marketplace visibility, SEO stagnation, or need an AI-powered content system — I have the strategy and the execution to fix it.</p>
+          <a href="mailto:himanshumeghwal10@gmail.com" class="clink"><div class="clink-icon">✉️</div><div><div class="clink-lbl">Email</div><div class="clink-val">himanshumeghwal10@gmail.com</div></div></a>
+          <a href="tel:+917851828437" class="clink"><div class="clink-icon">📞</div><div><div class="clink-lbl">Phone / WhatsApp</div><div class="clink-val">+91 78518 28437</div></div></a>
+          <div class="clink" style="cursor:default;"><div class="clink-icon">📍</div><div><div class="clink-lbl">Location</div><div class="clink-val">Udaipur, Rajasthan, India</div></div></div>
         </div>
-    </section>
+        <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="contact-form">
+          <div class="form-row">
+            <div class="fg"><label>Full Name</label><input name="name" placeholder="John Doe" required></div>
+            <div class="fg"><label>Email</label><input name="email" type="email" placeholder="john@company.com" required></div>
+          </div>
+          <div class="fg">
+            <label>I Need Help With</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>SEO Strategy &amp; Audit</option>
+              <option>Amazon / Marketplace Optimization</option>
+              <option>YouTube SEO &amp; Channel Growth</option>
+              <option>Amazon KDP Publishing</option>
+              <option>AI Marketing Workflows</option>
+              <option>Full Digital Marketing Strategy</option>
+            </select>
+          </div>
+          <div class="fg"><label>Project Objective</label><textarea name="message" rows="5" placeholder="Describe the current growth plateau..." required></textarea></div>
+          <button type="submit" class="btn-submit" id="contactSubmitBtn">Execute Communication →</button>
+          <div id="successMsg">✓ Signal Transmitted. I'll respond within 24 hours.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-32 px-6">
-        <div class="container mx-auto max-w-4xl text-center">
-            <div class="reveal">
-                <h2 class="text-5xl font-extrabold mb-8">Deploy Your Next <span class="text-brand-500">Growth Engine</span></h2>
-                <p class="text-slate-400 mb-16 max-w-2xl mx-auto text-lg">Currently screening high-impact projects. If you have a bottleneck, I have the system.</p>
-                
-                <form action="https://formspree.io/f/xeoylvpr" method="POST" id="contactForm" class="glass-card p-8 md:p-12 rounded-[40px] text-left border-white/10 shadow-2xl">
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div class="space-y-3">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Full Name</label>
-                            <input name="name" placeholder="John Doe" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600">
-                        </div>
-                        <div class="space-y-3">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Email Terminal</label>
-                            <input name="email" type="email" placeholder="john@company.com" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600">
-                        </div>
-                    </div>
-                    <div class="space-y-3 mb-10">
-                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Project Objective</label>
-                        <textarea name="message" placeholder="Describe the current growth plateau..." rows="5" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:bg-white/10 outline-none transition-all placeholder:text-slate-600 resize-none"></textarea>
-                    </div>
-                    <button type="submit" id="contactSubmitBtn" class="w-full py-6 bg-brand-600 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-brand-700 hover:scale-[1.01] transition-all shadow-2xl">Execute Communication</button>
-                    <p id="successMsg" class="hidden text-center text-emerald-400 mt-8 font-black text-sm animate-bounce">
-                        <i data-lucide="check-circle" class="inline w-4 h-4 mr-2"></i> Signal Transmitted Successfully.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 <strong style="color:var(--text)">Himanshu Meghwal</strong> — Precision Scaling.</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="mailto:himanshumeghwal10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</footer>
 
-    <footer class="py-20 text-center text-slate-600 px-6 border-t border-white/5">
-        <div class="flex justify-center gap-10 mb-12">
-            <a href="https://www.linkedin.com/in/himanshumeghwal" target="_blank" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-linkedin text-2xl"></i></a>
-            <a href="https://www.instagram.com/himanshu_meghwal_2001" target="_blank" class="hover:text-pink-500 transition-colors"><i class="fa-brands fa-instagram text-2xl"></i></a>
-            <a href="mailto:himanshumeghwal10@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-2xl"></i></a>
-        </div>
-        <p class="text-[10px] font-black uppercase tracking-[0.5em]">&copy; 2026 Himanshu Meghwal. Precision Scaling.</p>
-    </footer>
+<script>
+  // Custom cursor
+  const cur = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+  (function animRing(){ rx += (mx-rx)*0.12; ry += (my-ry)*0.12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); })();
+  document.querySelectorAll('a, button, .svc-card, .why-card, .edu-card, .cert-card, .res-card').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%,-50%) scale(1.8)');
+    el.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%,-50%) scale(1)');
+  });
 
-    <script>
-        lucide.createIcons();
-        const obs = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('active')), { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Typewriter
+  const tw = document.getElementById('typewriter');
+  const phrases = ["Growth Engines.", "E-com Architecture.", "AI Workflows.", "Revenue Systems."];
+  let pIdx = 0, cIdx = 0, deleting = false;
+  function type() {
+    const p = phrases[pIdx];
+    tw.textContent = deleting ? p.substring(0, cIdx--) : p.substring(0, cIdx++);
+    let speed = deleting ? 38 : 88;
+    if (!deleting && cIdx > p.length) { deleting = true; speed = 2200; }
+    else if (deleting && cIdx === 0) { deleting = false; pIdx = (pIdx+1) % phrases.length; speed = 400; }
+    setTimeout(type, speed);
+  }
+  type();
 
-        const tw = document.getElementById('typewriter');
-        const phrases = ["Growth Engines", "E-com Architecture", "AI Workflows", "Revenue Systems"];
-        let pIdx = 0, charIdx = 0, isDeleting = false;
+  // Mobile menu
+  const mBtn = document.getElementById('mobile-btn'), mMenu = document.getElementById('mobile-menu');
+  mBtn.addEventListener('click', () => { mMenu.classList.toggle('open'); mBtn.querySelector('i').className = mMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mMenu.classList.remove('open'); mBtn.querySelector('i').className = 'fa-solid fa-bars'; }));
 
-        function runTypewriter() {
-            const current = phrases[pIdx];
-            tw.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
-            let speed = isDeleting ? 40 : 90;
-            if (!isDeleting && charIdx > current.length) { isDeleting = true; speed = 2000; }
-            else if (isDeleting && charIdx === 0) { isDeleting = false; pIdx = (pIdx + 1) % phrases.length; speed = 500; }
-            setTimeout(runTypewriter, speed);
-        }
-        runTypewriter();
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        const btn = document.getElementById('mobile-btn'), menu = document.getElementById('mobile-menu'), icon = document.getElementById('menu-icon');
-        btn.onclick = () => {
-            const hidden = menu.classList.toggle('hidden');
-            icon.setAttribute('data-lucide', hidden ? 'menu' : 'x');
-            lucide.createIcons();
-        };
+  // Nav shadow
+  window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none'; });
 
-        const form = document.getElementById('contactForm');
-        form.onsubmit = () => {
-            document.getElementById('contactSubmitBtn').textContent = "TRANSMITTING...";
-            document.getElementById('contactSubmitBtn').disabled = true;
-            setTimeout(() => {
-                document.getElementById('successMsg').classList.remove('hidden');
-                document.getElementById('contactSubmitBtn').textContent = "TRANSMISSION COMPLETE";
-            }, 1200);
-        };
-    </script>
+  // Contact form — async Formspree
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('contactSubmitBtn');
+  const successMsg = document.getElementById('successMsg');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.textContent = 'TRANSMITTING...';
+    submitBtn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(r => {
+        if (r.ok) { successMsg.style.display = 'block'; submitBtn.textContent = 'TRANSMISSION COMPLETE'; form.reset(); }
+        else { submitBtn.textContent = 'Error — Try Again'; submitBtn.disabled = false; }
+      })
+      .catch(() => { submitBtn.textContent = 'Error — Try Again'; submitBtn.disabled = false; });
+  });
+</script>
 </body>
 </html>
